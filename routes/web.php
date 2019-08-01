@@ -31,4 +31,9 @@ Route::prefix('Admin')->group(function(){
 	Route::namespace('Admin\Index')->prefix('Index')->group(function(){
 		Route::get('/','IndexController@index')->name('Index');
 	});
+
+    //产品类表
+    Route::namespace('Admin\Products_List')->prefix('Products_List')->group(function(){
+        Route::get('/','ProductsController@index')->name('Products_List');
+    });
 });
