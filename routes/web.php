@@ -15,20 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'Home'], function () {
-
-    Route::group(['prefix' => 'Login'], function () {
-        Route::get('/','Home\Login\LoginController@index')->name('Login');
-        // Route::get('/','Home/RegisterController@index')->name('Register');
+Route::prefix('Home')->group(function(){
+    //登录
+    Route::namespace('Home\Login')->prefix('Login')->group(function(){
+        Route::get('/','LoginController@index')->name('Login');
     });
+    //注册
+    Route::namespace('Home\Login')->prefix('Register')->group(function(){
+        Route::get('/','RegisterController@index')->name('Register');
+    });
+});
 
-
-
-
-
-
-
-
-
-
+Route::prefix('Admin')->group(function(){
+	//首页
+	Route::namespace('Admin\Index')->prefix('Index')->group(function(){
+		Route::get('/','IndexController@index')->name('Index');
+	});
 });
