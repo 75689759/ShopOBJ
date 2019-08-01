@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'Home'], function () {
+
+    Route::group(['prefix' => 'Login'], function () {
+        Route::get('/','Home\Login\LoginController@index')->name('Login');
+        // Route::get('/','Home/RegisterController@index')->name('Register');
+    });
+
+
+
+
+
+
+
+
+
+
+});
