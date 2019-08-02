@@ -18,7 +18,7 @@
         <!--[if lte IE 8]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
 		<![endif]-->
-	    <script src="js/jquery-1.9.1.min.js"></script>   
+	    <script src="js/jquery-1.9.1.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/typeahead-bs2.min.js"></script>
 		<!-- page specific plugin scripts -->
@@ -45,7 +45,7 @@
     </div>
      <div class="border clearfix">
        <span class="l_f">
-        <a href="picture-add.html" title="添加商品" class="btn btn-warning Order_form"><i class="icon-plus"></i>添加商品</a>
+        <a href="{{route('Products_Picture_Add')}}" title="添加商品" class="btn btn-warning Order_form"><i class="icon-plus"></i>添加商品</a>
         <a href="javascript:ovid()" class="btn btn-danger"><i class="icon-trash"></i>批量删除</a>
        </span>
        <span class="r_f">共：<b>2334</b>件商品</span>
