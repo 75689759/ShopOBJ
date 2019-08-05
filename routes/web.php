@@ -298,12 +298,8 @@ Route::prefix('Home')->namespace('Home')->group(function(){
 
 
 });
-<<<<<<< HEAD
 
-Route::prefix('Admin')->group(function(){
-=======
 Route::prefix('Admin')->namespace('Admin')->group(function(){
->>>>>>> shop/master
 	//首页父模板
 	Route::namespace('Index')->prefix('Index')->group(function(){
 		Route::get('/','IndexController@index')->name('Index');
