@@ -15,8 +15,8 @@ class CreateRolesNodeTable extends Migration
     {
         Schema::create('roles_node', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('rid')->comment('角色id');
-            $table->integer('nid')->comment('节点表');
+            $table->integer('roles_id')->comment('角色id');
+            $table->integer('node_id')->comment('节点表');
             $table->timestamps();
         });
     }

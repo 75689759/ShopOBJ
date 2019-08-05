@@ -15,12 +15,9 @@ class CreateReplyTable extends Migration
     {
         Schema::create('reply', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('uname', 32)->unique()->comment('用户名');
-            $table->char('pwd', 32)->comment('密码');
-            $table->char('email', 50)->nullable()->comment('邮箱');
-            $table->char('phone', 50)->nullable()->comment('手机号');
-            $table->enum('state', [0,1])->default(0)->comment('状态：0为启用，1为禁用。默认为1');
-            $table->rememberToken()->comment('token验证');
+            $table->integer('pid')->comment('评价表id');
+            $table->integer('rtime')->comment('回复时间');
+            $table->text('rcontent')->comment('回复内容');
             $table->timestamps();
         });
     }

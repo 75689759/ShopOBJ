@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserRolesTable extends Migration
+class CreateShopTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateUserRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_roles', function (Blueprint $table) {
+        Schema::create('shop', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('users_id')->comment('用户id');
-            $table->integer('roles_id')->comment('角色id');
+            $table->integer('users_id')->comment('用户表id');
+            $table->char('sname',50)->comment('店铺名称');
+            $table->text('intro')->comment('简介');
+            $table->enum('audit', ['1', '2','3'])->comment('审核状态：1通过，2拒绝，3待审核');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateUserRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_roles');
+        Schema::dropIfExists('shop');
     }
 }

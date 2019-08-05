@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserRolesTable extends Migration
+class CreateIpTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateUserRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_roles', function (Blueprint $table) {
+        Schema::create('ip', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('users_id')->comment('用户id');
-            $table->integer('roles_id')->comment('角色id');
+            $table->integer('users_id')->comment('用户表id');
+            $table->char('ip',50)->comment('IP地址');
+            $table->char('vtime',50)->comment('访问时间');
+            $table->char('terrace',50)->comment('访问位置');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateUserRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_roles');
+        Schema::dropIfExists('ip');
     }
 }
