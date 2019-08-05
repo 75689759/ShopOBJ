@@ -15,7 +15,7 @@ class CreateReplyTable extends Migration
     {
         Schema::create('reply', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('pid')->comment('评价表id');
+            $table->integer('post_id')->comment('评价表id');
             $table->integer('rtime')->comment('回复时间');
             $table->text('rcontent')->comment('回复内容');
             $table->timestamps();
