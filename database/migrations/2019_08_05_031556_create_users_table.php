@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReplyTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateReplyTable extends Migration
      */
     public function up()
     {
-        Schema::create('reply', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->char('uname', 32)->unique()->comment('用户名');
             $table->char('pwd', 32)->comment('密码');
@@ -32,6 +32,6 @@ class CreateReplyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reply');
+        Schema::dropIfExists('users');
     }
 }
