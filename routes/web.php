@@ -313,7 +313,6 @@ Route::prefix('Home')->group(function(){
     });
 });
 
-
 Route::prefix('Admin')->group(function(){
 	//首页父模板
 	Route::namespace('Admin\Index')->prefix('Index')->group(function(){
