@@ -73,8 +73,6 @@
 				<th width="25"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
                 <th width="80px">排序</th>
 				<th width="180">店铺名称</th>
-				<th width="120px">所属分类</th>
-                <th width="120px">店铺类型</th>
 				<th width="">简介</th>
 				<th width="150px">添加时间</th>
                 <th width="100px">审核状态</th>                
@@ -82,46 +80,19 @@
 			</tr>
 		</thead>
         <tbody>
+          @foreach($data as $k=>$v)
          <tr>
           <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-          <td>1</td>
-          <td>泡吧食品旗舰店</td>
-          <td> 食品</td>
-           <td> 企业店铺</td>
-          <td class="displayPart" displayLength="60">泡吧食品旗舰店是福建泡吧食品有限公司商城唯一旗舰店，直营销售</td>
-          <td>2016-7-25 12:34</td>
+          <td>{{$v->id}}</td>
+          <td>{{$v->sname}}</td>
+          <td class="displayPart" displayLength="60">{{$v->intro}}</td>
+          <td>2019-08-06 07:40:00</td>
           <td>通过</td>
           <td class="td-manage">        
            <a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-danger" ><i class="fa fa-trash  bigger-120"></i></a>
           </td>
          </tr>
-         <tr>
-          <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-          <td>2</td>
-          <td>保健食品</td>
-          <td> 保健食品</td>
-          <td> 个人店铺</td>
-          <td class="displayPart" displayLength="60">付款方式分为以下几种：（注：先款订单请您在订单提交后24小时内完成支付， 否则订单会自动取消）</td>
-          <td>2016-7-25 12:34</td>
-          <td>通过</td>
-           
-          <td class="td-manage">     
-           <a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-danger" ><i class="fa fa-trash  bigger-120"></i></a>
-          </td>
-         </tr>
-         <tr>
-          <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-          <td>3</td>
-          <td>三天数码旗舰店</td>
-          <td> 数码</td>
-           <td> 企业店铺</td>
-          <td class="displayPart" displayLength="60">付款方式分为以下几种：（注：先款订单请您在订单提交后24小时内完成支付， 否则订单会自动取消）</td>
-          <td>2016-7-25 12:34</td>
-          <td>通过</td>
-          <td class="td-manage">       
-           <a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-danger" ><i class="fa fa-trash  bigger-120"></i></a>
-          </td>
-         </tr>
+         @endforeach
         </tbody>
        </table>    
      </div>

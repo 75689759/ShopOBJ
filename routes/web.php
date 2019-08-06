@@ -424,6 +424,8 @@ Route::prefix('Admin')->namespace('Admin')->group(function(){
     //店铺列表
     Route::namespace('Shop')->prefix('Shop_List')->group(function(){
         Route::get('/','ShopController@index')->name('Shop_List');
+
+        Route::get('/select','ShopController@select')->name('Shop_Select');
     });
 
     //店铺审核

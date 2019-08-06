@@ -34,8 +34,6 @@
        <thead>
 		 <tr>
             <th width="180px">店铺名称</th>
-            <th width="120px">所属分类</th>
-            <th width="120px">店铺类型</th>
             <th width="">简介</th>
             <th width="150px">添加时间</th>
             <th width="100px">审核状态</th>                
@@ -43,12 +41,11 @@
 			</tr>
 		</thead>
         <tbody>
+          @foreach($datas as $k=>$v)
         <tr>
-         <td>课程猫旗舰店</td>
-         <td>食品保健</td>
-         <td>企业店铺</td>
-         <td class="displayPart" displayLength="80">课程猫旗舰店课程猫旗舰店课程猫旗舰店课程猫旗舰店课程猫旗舰店课程猫旗舰店课程猫旗舰店课程猫旗舰店课程猫旗舰店</td>
-         <td>2016-7-23</td>
+         <td>{{$v->sname}}</td>
+         <td class="displayPart" displayLength="80">{{$v->intro}}</td>
+         <td>2019-08-06 07:40:00</td>
          <td>待审核</td>
           <td class="td-manage">
            <a title="店铺详细" href="shopping_detailed.html" class="btn btn-xs btn-info Refund_detailed">详细</a>        
@@ -56,6 +53,7 @@
            
           </td>
         </tr>
+        @endforeach
         </tbody>
         </table>
    
