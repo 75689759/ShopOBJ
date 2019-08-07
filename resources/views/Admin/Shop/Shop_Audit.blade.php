@@ -27,7 +27,7 @@
 <body>
 <div class="margin clearfix">
  <div class="Shops_Audit">
-   <div class="prompt">当前共有<b>5</b>家店铺申请入住</div>
+   <div class="prompt">当前共有<b>{{$count}}</b>家店铺申请入住</div>
    <!--申请列表-->
    <div class="audit_list">
      <table class="table table-striped table-bordered table-hover" id="sample-table">
@@ -48,9 +48,7 @@
          <td>2019-08-06 07:40:00</td>
          <td>待审核</td>
           <td class="td-manage">
-           <a title="店铺详细" href="shopping_detailed.html" class="btn btn-xs btn-info Refund_detailed">详细</a>        
-           <a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-danger" >删除</a>
-           
+           <a title="店铺详细" href="{{route('Shop_Detailed')}}" class="btn btn-xs btn-info Refund_detailed">详细</a>        
           </td>
         </tr>
         @endforeach
@@ -86,13 +84,6 @@ $(function() {
 						
 				});
 })
-/*店铺-删除*/
-function member_del(obj,id){
-	layer.confirm('确认要删除吗？',{icon:0,},function(index){
-		$(obj).parents("tr").remove();
-		layer.msg('已删除!',{icon:1,time:1000});
-	});
-}
 //面包屑返回值
 var index = parent.layer.getFrameIndex(window.name);
 parent.layer.iframeAuto(index);

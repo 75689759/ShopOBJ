@@ -425,12 +425,14 @@ Route::prefix('Admin')->namespace('Admin')->group(function(){
     Route::namespace('Shop')->prefix('Shop_List')->group(function(){
         Route::get('/','ShopController@index')->name('Shop_List');
 
-        Route::get('/select','ShopController@select')->name('Shop_Select');
+        Route::get('/del/{id}','ShopController@del')->name('Shop_Del');
     });
 
     //店铺审核
     Route::namespace('Shop')->prefix('Shop_Audit')->group(function(){
         Route::get('/','ShopController@audit')->name('Shop_Audit');
+
+        Route::get('/detailed','ShopController@detailed')->name('Shop_Detailed');
     });
 
     /**************************************************消息管理**************************************************/
