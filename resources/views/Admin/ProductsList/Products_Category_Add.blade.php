@@ -20,35 +20,62 @@
 	    <script src="js/jquery-1.9.1.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
 <title>添加产品分类</title>
+<style type="text/css">
+  li {
+      font-size: 13px;
+      display: list-item;
+      text-align: -webkit-match-parent;
+      list-style-position: inside;
+      list-style-type: inherit;
+      margin: 0;
+      line-height: 20px;
+    } 
+    
+    .mws-form-message.error {
+    
+    background-color: #ffcbca;
+    border-color: #eb979b;
+    color: #9b4449;
+    margin:0 auto;
+    width:auto;
+    height:auto;
+    }
+
+</style>
 </head>
 <body>
 <div class="type_style">
  <div class="type_title">产品类型信息</div>
   <div class="type_content">
   <div class="Operate_btn">
-  <a href="javascript:ovid()" class="btn  btn-warning"><i class="icon-edit align-top bigger-125"></i>新增子类型</a>
-  <a href="javascript:ovid()" class="btn  btn-success"><i class="icon-ok align-top bigger-125"></i>禁用该类型</a>
   <a href="javascript:ovid()" class="btn  btn-danger"><i class="icon-trash   align-top bigger-125"></i>删除该类型</a>
   </div>
-  <form action="" method="post" class="form form-horizontal" id="form-user-add">
+  @if(session('error'))
+  <div class="mws-form-message error">
+    <ul class="alert alert-danger">
+      <li>{{ session('error') }}</li>
+    </ul>
+  </div>
+  @endif
+  <form action="{{route('Products_add')}}" method="post" class="form form-horizontal" id="form-user-add">
+    {{ csrf_field() }}
     <div class="Operate_cont clearfix">
-      <label class="form-label"><span class="c-red">*</span>分类名称：</label>
-      <div class="formControls ">
-        <input type="text" class="input-text" value="" placeholder="" id="user-name" name="product-category-name">
+      <label class="form-label"><span class="c-red">*</span>分类：</label>
+      <div class="formControls">
+        <select name="cates" style="margin-left: 10px;">
+          <option value="0">请选择</option>
+          <option value="0.5">添加父分类</option>
+          @foreach($data as $k=>$v)
+            <option value="{{$v->id}}">{{$v->cname}}</option>
+          @endforeach
+        </select>
       </div>
     </div>
         <div class="Operate_cont clearfix">
-      <label class="form-label"><span class="c-red">*</span>排序：</label>
+      <label class="form-label"><span class="c-red">*</span>分类名称：</label>
       <div class="formControls ">
-        <input type="text" class="input-text" value="" placeholder="" id="user-name" name="product-category-name">
+        <input type="text" class="input-text" value="" placeholder="" id="user-name" name="cname">
       </div>
-    </div>
-    <div class="Operate_cont clearfix">
-    <label class="form-label">备注：</label>
-    <div class="formControls">
-    <textarea name="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this,100)"></textarea>
-     <p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
-    </div>
     </div>
     <div class="">
      <div class="" style=" text-align:center">
@@ -81,7 +108,11 @@ $(function(){
 			parent.layer.close(index);
 		}
 	});
-});
+
+  $('.error').click(function(){
+          $(this).css('display','none');
+      })
+  });
 </script>
 </body>
 </html>

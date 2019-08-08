@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\Products_List;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\cates;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -24,7 +26,22 @@ class ProductsController extends Controller
 
     //后台添加分类模板
     public function categoryAdd(){
-    	return view('Admin.ProductsList.Products_Category_Add');
+        // $data = cates::raw("path,',',id as paths")->orderBy('paths','asc')->get();
+        // $data = cates::raw("path,',',id as paths")->orderBy('paths','asc')->toSql();
+        $data = DB::select("select *,concat(path,id) as paths from cates order by paths asc");
+
+        // $data = cates::findOrFail("concat(path,',',id) as paths")->orderBy('paths','asc')->toSql();
+        // $data = cates::select('*,concat(path,",",id) as paths')->orderBy('paths','asc')->get();
+        // $data = cates::select('*,concat(path,",",id) as paths')->orderBy("paths","asc")->toSql();
+        // $data = $data->toArray();
+        // dd($data);
+
+
+        // DB::select("select *,concat(path,',',id) as paths from cates order by paths asc");
+
+        // dd($data);
+
+    	return view('Admin.ProductsList.Products_Category_Add',['data'=>$data]);
     }
 
     //后台添加商品模板
@@ -35,5 +52,38 @@ class ProductsController extends Controller
     //后台添加品牌模板
     public function addBrand(){
         return view('Admin.ProductsList.Products_Add_Brand');
+    }
+
+    //后台添加分类模板
+    public function add(){
+
+        // var_dump($_POST);
+
+        $cates = $_POST['cates'];
+        $cname = $_POST['cname'];
+
+        if($cates == 0){
+            return back()->with('error','请选择分类');
+        }else if(empty($cname)){
+            return back()->with('error','请填写分类名');
+        }else if($cates == 0.5){
+            cates::create([
+                'cname' => $cname,
+                'pid' => '0',
+                'path' => '0,',
+            ]);
+            return back()->with('error','添加父分类成功');
+        }else if($cates != 0 || $cates != 0.5){
+            $dates = cates::find($cates);
+
+            $path = $dates->path;
+
+            cates::create([
+                'cname' => $cname,
+                'pid' => $cates,
+                'path' => $path.$cates.',',
+            ]);
+            return back()->with('error','添加子分类成功');
+        }
     }
 }

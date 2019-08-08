@@ -310,6 +310,11 @@ Route::prefix('Admin')->namespace('Admin')->group(function(){
         Route::get('/','HomeController@index')->name('Home');
     });
 
+    //登录
+    Route::namespace('Login')->prefix('Login')->group(function(){
+        Route::get('/','LoginController@index')->name('Login');
+    });
+
     /**************************************************产品管理**************************************************/
 
     //产品类表
@@ -325,6 +330,8 @@ Route::prefix('Admin')->namespace('Admin')->group(function(){
     //分类管理
     Route::namespace('Products_List')->prefix('Products_Category')->group(function(){
         Route::get('/','ProductsController@category')->name('Products_Category');
+
+        Route::post('/add','ProductsController@add')->name('Products_add');
     });
 
     //添加分类
