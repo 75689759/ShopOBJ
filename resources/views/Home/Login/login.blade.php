@@ -9,7 +9,6 @@
 		<meta name="format-detection" content="telephone=no">
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
-
 		<link rel="stylesheet" href="AmazeUI-2.4.2/assets/css/amazeui.css" />
 		<link href="css/dlstyle.css" rel="stylesheet" type="text/css">
 	</head>
@@ -28,29 +27,35 @@
 							<h3 class="title">登录商城</h3>
 
 							<div class="clear"></div>
-						
+					
 						<div class="login-form">
-						  <form>
+							<form id="form" method="post" action="{{ route('DoLogin') }}">
+								{{ csrf_field() }}
 							   <div class="user-name">
 								    <label for="user"><i class="am-icon-user"></i></label>
-								    <input type="text" name="" id="user" placeholder="邮箱/手机/用户名">
-                 </div>
-                 <div class="user-pass">
-								    <label for="password"><i class="am-icon-lock"></i></label>
-								    <input type="password" name="" id="password" placeholder="请输入密码">
-                 </div>
-              </form>
-           </div>
-            
-            <div class="login-links">
-                <label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
-								<a href="#" class="am-fr">忘记密码</a>
-								<a href="{{route('Register')}}" class="zcnext am-fr am-btn-default">注册</a>
-								<br />
-            </div>
-								<div class="am-cf">
-									<input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm">
+								    <input type="text" name="uname" id="user" placeholder="邮箱/手机/用户名">
 								</div>
+								<div class="user-pass">
+									<label for="password"><i class="am-icon-lock"></i></label>
+									<input type="password" name="pwd" id="password" placeholder="请输入密码">
+								</div>
+								<input id="md" type="hidden" name="md" value="session" />
+							</form>
+           				</div>
+            
+						<div class="login-links">
+							<label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
+							<a href="#" class="am-fr">忘记密码</a>
+							<a href="{{route('Register')}}" class="zcnext am-fr am-btn-default">注册</a>
+							<br />
+						</div>
+						<div class="am-cf">
+							<input id="sub" type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm">
+						</div>
+					
+					
+
+
 						<div class="partner">		
 								<h3>合作账号</h3>
 							<div class="am-btn-group">
@@ -87,6 +92,26 @@
 							</p>
 						</div>
 					</div>
+
+					<script>
+						// console.log(document.querySelector("#remember-me").checked);
+						var checkbox = document.querySelector("#remember-me");
+						var md = document.querySelector("#md");
+						checkbox.onchange = function (){
+							console.log(checkbox.checked);
+							if(checkbox.checked){
+								md.setAttribute('value',"cookie");
+							}else{
+								md.setAttribute('value',"session");
+							}
+						}
+						var sub = document.querySelector("#sub");
+						var form = document.querySelector("#form");
+						sub.onclick = function (){
+							form.submit();
+						}
+
+					</script>
 	</body>
 
 </html>
