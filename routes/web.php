@@ -229,6 +229,12 @@ Route::prefix('Admin')->namespace('Admin')->group(function () {
         Route::get('/', 'HomeController@index')->name('Home');
     });
 
+    //登录
+    Route::namespace('Login')->prefix('Login')->group(function () {
+        Route::get('/', 'LoginController@index')->name('Login');
+        Route::post('/', 'LoginController@Login')->name('MakeLogin');
+    });
+
     /**************************************************产品管理**************************************************/
 
     //产品类表
@@ -244,6 +250,8 @@ Route::prefix('Admin')->namespace('Admin')->group(function () {
     //分类管理
     Route::namespace('Products_List')->prefix('Products_Category')->group(function () {
         Route::get('/', 'ProductsController@category')->name('Products_Category');
+
+        Route::post('/add', 'ProductsController@add')->name('Products_add');
     });
 
     //添加分类
@@ -343,11 +351,15 @@ Route::prefix('Admin')->namespace('Admin')->group(function () {
     //店铺列表
     Route::namespace('Shop')->prefix('Shop_List')->group(function () {
         Route::get('/', 'ShopController@index')->name('Shop_List');
+
+        Route::get('/del/{id}', 'ShopController@del')->name('Shop_Del');
     });
 
     //店铺审核
     Route::namespace('Shop')->prefix('Shop_Audit')->group(function () {
         Route::get('/', 'ShopController@audit')->name('Shop_Audit');
+
+        Route::get('/detailed', 'ShopController@detailed')->name('Shop_Detailed');
     });
 
     /**************************************************消息管理**************************************************/
