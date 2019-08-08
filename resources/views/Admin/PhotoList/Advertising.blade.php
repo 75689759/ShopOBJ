@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="css/style.css"/>       
+        <link rel="stylesheet" href="css/style.css"/>
         <link href="assets/css/codemirror.css" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/ace.min.css" />
         <link rel="stylesheet" href="font/css/font-awesome.min.css" />
@@ -15,11 +15,11 @@
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
 		<![endif]-->
 		<script src="js/jquery-1.9.1.min.js"></script>
-		<script src="assets/js/typeahead-bs2.min.js"></script>   
-        <script src="js/lrtk.js" type="text/javascript" ></script>		
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+        <script src="js/lrtk.js" type="text/javascript" ></script>
 		<script src="assets/js/jquery.dataTables.min.js"></script>
 		<script src="assets/js/jquery.dataTables.bootstrap.js"></script>
-        <script src="assets/layer/layer.js" type="text/javascript" ></script>          
+        <script src="assets/layer/layer.js" type="text/javascript" ></script>
         <script type="text/javascript" src="Widget/swfupload/swfupload.js"></script>
         <script type="text/javascript" src="Widget/swfupload/swfupload.queue.js"></script>
         <script type="text/javascript" src="Widget/swfupload/swfupload.speed.js"></script>
@@ -47,7 +47,7 @@
          </ul>
   </div>
   </div>
-  </div>  
+  </div>
   </div><div class="Ads_list">
    <div class="border clearfix">
        <span class="l_f">
@@ -68,7 +68,7 @@
 				<th width="150px">尺寸（大小）</th>
 				<th width="250px">链接地址</th>
 				<th width="180px">加入时间</th>
-				<th width="70px">状态</th>                
+				<th width="70px">状态</th>
 				<th width="250px">操作</th>
 			</tr>
 		</thead>
@@ -84,8 +84,8 @@
        <td>2016-6-29 12:34</td>
        <td class="td-status"><span class="label label-success radius">显示</span></td>
       <td class="td-manage">
-        <a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>   
-        <a title="编辑" onclick="member_edit('编辑','member-add.html','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>      
+        <a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>
+        <a title="编辑" onclick="member_edit('编辑','member-add.html','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>
         <a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
        </td>
       </tr>
@@ -110,9 +110,9 @@
     <option value="CA">板块栏目广告</option>
   </select></span>
   </li>
-  <li><label class="label_name">图片尺寸</label><span class="cont_style">
-  <input name="长" type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:80px">
-  <span class="l_f" style="margin-left:10px;">x</span><input name="宽" type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:80px"></span></li>
+{{--  <li><label class="label_name">图片尺寸</label><span class="cont_style">--}}
+{{--  <input name="长" type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:80px">--}}
+{{--  <span class="l_f" style="margin-left:10px;">x</span><input name="宽" type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:80px"></span></li>--}}
   <li><label class="label_name">显示排序</label><span class="cont_style"><input name="排序" type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:50px"></span></li>
   <li><label class="label_name">链接地址</label><span class="cont_style"><input name="地址" type="text" id="form-field-1" placeholder="地址" class="col-xs-10 col-sm-5" style="width:450px"></span></li>
    <li><label class="label_name">状&nbsp;&nbsp;态：</label>
@@ -121,40 +121,41 @@
      <label><input name="form-field-radio1" type="radio" class="ace"><span class="lbl">隐藏</span></label></span><div class="prompt r_f"></div>
      </li>
      <li><label class="label_name">图片</label><span class="cont_style">
- <div class="demo">
-	           <div class="logobox"><div class="resizebox"><img src="images/image.png" width="100px" alt="" height="100px"/></div></div>	
-               <div class="logoupload">
-                  <div class="btnbox"><a id="uploadBtnHolder" class="uploadbtn" href="javascript:;">上传替换</a></div>
-                  <div style="clear:both;height:0;overflow:hidden;"></div>
-                  <div class="progress-box" style="display:none;">
-                    <div class="progress-num">上传进度：<b>0%</b></div>
-                    <div class="progress-bar"><div style="width:0%;" class="bar-line"></div></div>
-                  </div>  <div class="prompt"><p>图片大小小于5MB,支持.jpg;.gif;.png;.jpeg格式的图片</p></div>  
-              </div>                                
-           </div>           
+{{--            <div class="demo">--}}
+{{--	           <div class="logobox"><div class="resizebox"><img src="images/image.png" width="100px" alt="" height="100px"/></div></div>--}}
+{{--               <div class="logoupload">--}}
+{{--                  <div class="btnbox"><a id="uploadBtnHolder" class="uploadbtn" href="javascript:;">上传替换</a></div>--}}
+{{--                  <div style="clear:both;height:0;overflow:hidden;"></div>--}}
+{{--                  <div class="progress-box" style="display:none;">--}}
+{{--                    <div class="progress-num">上传进度：<b>0%</b></div>--}}
+{{--                    <div class="progress-bar"><div style="width:0%;" class="bar-line"></div></div>--}}
+{{--                  </div>  <div class="prompt"><p>图片大小小于5MB,支持.jpg;.gif;.png;.jpeg格式的图片</p></div>--}}
+{{--              </div>--}}
+{{--           </div>--}}
+             <input type="file" name="pic" />
    </span>
   </li>
- 
-  
+
+
  </ul>
  </div>
 </div>
 </body>
 </html>
 <script>
-//初始化宽度、高度  
- $(".widget-box").height($(window).height()); 
+//初始化宽度、高度
+ $(".widget-box").height($(window).height());
  $(".Ads_list").width($(window).width()-220);
-  //当文档窗口发生改变时 触发  
+  //当文档窗口发生改变时 触发
     $(window).resize(function(){
 	$(".widget-box").height($(window).height());
 	 $(".Ads_list").width($(window).width()-220);
 	});
-	$(function() { 
+	$(function() {
 	$("#advertising").fix({
 		float : 'left',
 		//minStatue : true,
-		skin : 'green',	
+		skin : 'green',
 		durationTime :false,
 		stylewidth:'220',
 		spacingw:30,//设置隐藏时的距离
@@ -193,34 +194,34 @@ function member_del(obj,id){
 	  layer.open({
         type: 1,
         title: '添加广告',
-		maxmin: true, 
+		maxmin: true,
 		shadeClose: false, //点击遮罩关闭层
         area : ['800px' , ''],
         content:$('#add_ads_style'),
 		btn:['提交','取消'],
-		yes:function(index,layero){	
+		yes:function(index,layero){
 		 var num=0;
 		 var str="";
      $(".add_adverts input[type$='text']").each(function(n){
           if($(this).val()=="")
           {
-               
+
 			   layer.alert(str+=""+$(this).attr("name")+"不能为空！\r\n",{
-                title: '提示框',				
-				icon:0,								
-          }); 
+                title: '提示框',
+				icon:0,
+          });
 		    num++;
-            return false;            
-          } 
+            return false;
+          }
 		 });
-		  if(num>0){  return false;}	 	
+		  if(num>0){  return false;}
           else{
 			  layer.alert('添加成功！',{
-               title: '提示框',				
-			icon:1,		
+               title: '提示框',
+			icon:1,
 			  });
-			   layer.close(index);	
-		  }		  		     				
+			   layer.close(index);
+		  }
 		}
     });
 })
@@ -277,9 +278,9 @@ $(document).ready(function() {
 		button_window_mode : SWFUpload.WINDOW_MODE.TRANSPARENT,
 		button_cursor : SWFUpload.CURSOR.HAND,
 		button_action: SWFUpload.BUTTON_ACTION.SELECT_FILE,
-		
+
 		moving_average_history_size: 40,
-		
+
 		// The event handler functions are defined in handlers.js
 		swfupload_preload_handler : preLoad,
 		swfupload_load_failed_handler : loadFailed,
@@ -302,7 +303,7 @@ $(document).ready(function() {
 		},
 		file_queue_error_handler : function(file, errorCode, message) {
 			if(errorCode == -110) {
-				alert('您选择的文件太大了。');	
+				alert('您选择的文件太大了。');
 			}
 		}
 	};
@@ -318,8 +319,8 @@ jQuery(function($) {
 		  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
 		  {"orderable":false,"aTargets":[0,2,3,4,5,7,8,]}// 制定列不参与排序
 		] } );
-				
-				
+
+
 				$('table th input:checkbox').on('click' , function(){
 					var that = this;
 					$(this).closest('table').find('tr > td:first-child input:checkbox')
@@ -327,20 +328,20 @@ jQuery(function($) {
 						this.checked = that.checked;
 						$(this).closest('tr').toggleClass('selected');
 					});
-						
+
 				});
-			
-			
+
+
 				$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
 				function tooltip_placement(context, source) {
 					var $source = $(source);
 					var $parent = $source.closest('table')
 					var off1 = $parent.offset();
 					var w1 = $parent.width();
-			
+
 					var off2 = $source.offset();
 					var w2 = $source.width();
-			
+
 					if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
 					return 'left';
 				}

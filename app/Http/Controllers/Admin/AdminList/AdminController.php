@@ -21,4 +21,9 @@ class AdminController extends Controller
     public function info(){
     	return view('Admin.AdminList.Admin_Info');
     }
+
+    //广告管理
+    public function index(){
+
+    }
 }

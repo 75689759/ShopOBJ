@@ -140,7 +140,7 @@
 													购买商品
 												</div>
 												<ul>
-												
+
 													<li class="ng-scope  delete-false">
 
 														<div class="  ng-scope">
@@ -212,7 +212,7 @@
 
 									<!--收入-->
 									<h3 class="expense income-title block-title">
-                                                                                                                       收入                                                              
+                                                                                                                       收入
                                       <span class="num ng-binding">
                                               0.00
                                        </span>
@@ -287,17 +287,17 @@
 
 								<script>
 									$(document).ready(function (ev) {
-								
+
 									    $('.cards-carousel .details').on('click', function (ev) {
 								             $('.cards-details').css("display","block");
-								             $('.cards-carousel').css("display","none");								 
-									    });									   									    
-								
+								             $('.cards-carousel').css("display","none");
+									    });
+
 									    $('.cards-details .close').on('click', function (ev) {
 								             $('.cards-details').css("display","none");
-								             $('.cards-carousel').css("display","block");								 
-									    });									    
-									    									   								    
+								             $('.cards-carousel').css("display","block");
+									    });
+
 									});
 								</script>
 
@@ -333,48 +333,7 @@
 
 			</div>
 
-			<aside class="menu">
-				<ul>
-					<li class="person">
-						<a href="index.html">个人中心</a>
-					</li>
-					<li class="person">
-						<a href="#">个人资料</a>
-						<ul>
-							<li> <a href="information.html">个人信息</a></li>
-							<li> <a href="safety.html">安全设置</a></li>
-							<li> <a href="address.html">收货地址</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的交易</a>
-						<ul>
-							<li><a href="order.html">订单管理</a></li>
-							<li> <a href="change.html">退款售后</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的资产</a>
-						<ul>
-							<li> <a href="coupon.html">优惠券 </a></li>
-							<li> <a href="bonus.html">红包</a></li>
-							<li class="active"> <a href="bill.html">账单明细</a></li>
-						</ul>
-					</li>
-
-					<li class="person">
-						<a href="#">我的小窝</a>
-						<ul>
-							<li> <a href="collection.html">收藏</a></li>
-							<li> <a href="foot.html">足迹</a></li>
-							<li> <a href="comment.html">评价</a></li>
-							<li> <a href="news.html">消息</a></li>
-						</ul>
-					</li>
-
-				</ul>
-
-			</aside>
+            @include("Home.UserInfo.public.sidebar")
 		</div>
 
 	</body>

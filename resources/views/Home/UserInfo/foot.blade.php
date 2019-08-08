@@ -316,10 +316,10 @@
 										<a class="title" href="#" target="_blank">意大利费列罗进口食品巧克力零食24粒  进口巧克力食品</a>
 									</div>
 									<div class="goods-price">
-										<span class="g_price">                                    
+										<span class="g_price">
                                         <span>¥</span><strong>71</strong>
 										</span>
-										<span class="g_price g_price-original">                                    
+										<span class="g_price g_price-original">
                                         <span>¥</span><strong>142</strong>
 										</span>
 									</div>
@@ -333,9 +333,9 @@
 									</div>
 								</div>
 							</div>
-						</div> 
-						
-						
+						</div>
+
+
 					</div>
 				</div>
 
@@ -364,49 +364,9 @@
 				</div>
 			</div>
 
-			<aside class="menu">
-				<ul>
-					<li class="person">
-						<a href="index.html">个人中心</a>
-					</li>
-					<li class="person">
-						<a href="#">个人资料</a>
-						<ul>
-							<li> <a href="information.html">个人信息</a></li>
-							<li> <a href="safety.html">安全设置</a></li>
-							<li> <a href="address.html">收货地址</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的交易</a>
-						<ul>
-							<li><a href="order.html">订单管理</a></li>
-							<li> <a href="change.html">退款售后</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的资产</a>
-						<ul>
-							<li> <a href="coupon.html">优惠券 </a></li>
-							<li> <a href="bonus.html">红包</a></li>
-							<li> <a href="bill.html">账单明细</a></li>
-						</ul>
-					</li>
+            @include("Home.UserInfo.public.sidebar")
 
-					<li class="person">
-						<a href="#">我的小窝</a>
-						<ul>
-							<li> <a href="collection.html">收藏</a></li>
-							<li class="active"> <a href="foot.html">足迹</a></li>
-							<li> <a href="comment.html">评价</a></li>
-							<li> <a href="news.html">消息</a></li>
-						</ul>
-					</li>
-
-				</ul>
-
-			</aside>
-		</div>
+        </div>
 
 	</body>
 

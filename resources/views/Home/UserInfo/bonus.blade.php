@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-{asset("Home/.png")}}
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
@@ -218,7 +217,7 @@
 
 <!--已过期-->
 											<ul class="item-list">
-												
+
 												<li class="td td-from">
 													<div class="item-img">
 														<img src={{asset("Home/images/566fda5cN4b8a1675.gif")}}>
@@ -252,13 +251,13 @@
 												</li>
 											</ul>
 
-										
-										
+
+
 										</div>
 
 									</div>
 								</div>
-								
+
 							</div>
 						</div>
 					</div>
@@ -289,48 +288,8 @@
 
 			</div>
 
-			<aside class="menu">
-				<ul>
-					<li class="person">
-						<a href="index.html">个人中心</a>
-					</li>					
-					<li class="person">
-						<a href="#">个人资料</a>
-						<ul>
-							<li> <a href="information.html">个人信息</a></li>
-							<li> <a href="safety.html">安全设置</a></li>
-							<li> <a href="address.html">收货地址</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的交易</a>
-						<ul>
-							<li><a href="order.html">订单管理</a></li>
-							<li> <a href="change.html">退款售后</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的资产</a>
-						<ul>
-							<li> <a href="coupon.html">优惠券 </a></li>
-							<li class="active"> <a href="bonus.html">红包</a></li>
-							<li> <a href="bill.html">账单明细</a></li>
-						</ul>
-					</li>
+            @include("Home.UserInfo.public.sidebar")
 
-					<li class="person">
-						<a href="#">我的小窝</a>
-						<ul>
-							<li> <a href="collection.html">收藏</a></li>
-							<li> <a href="foot.html">足迹</a></li>
-							<li> <a href="comment.html">评价</a></li>
-							<li> <a href="news.html">消息</a></li>
-						</ul>
-					</li>
-
-				</ul>
-
-			</aside>
 		</div>
 
 	</body>

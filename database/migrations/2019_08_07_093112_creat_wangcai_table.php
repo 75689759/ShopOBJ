@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWangcaiTable extends Migration
+class CreatWangcaiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateWangcaiTable extends Migration
      */
     public function up()
     {
-        Schema::create('advertising', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('desc')->comment('排序');
-            $table->char('pic',255)->comment('图片名');
-            $table->char('link',255)->comment('链接');
-            $table->integer('atime')->comment('添加时间');
+        Schema::create('wangcai', function (Blueprint $table) {
+            $table->bigIncrements('id')->comment('分类id');
+            $table->char('name', 50)->comment('分类名称');
+            $table->text('explain')->comment('分类说明');
             $table->enum('astatus',['1','2'])->comment('状态：1显示，2隐藏');
             $table->timestamps();
         });

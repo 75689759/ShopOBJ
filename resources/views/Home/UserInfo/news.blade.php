@@ -144,16 +144,16 @@
 											<div class="s-msg-content i-msg-downup-wrap">
 												<div class="i-msg-downup-con">
 													<a class="i-markRead" target="_blank" href="logistics.html">
-													<div class="m-item">	
-														<div class="item-pic">															
+													<div class="m-item">
+														<div class="item-pic">
 																	<img src={{asset("Home/images/kouhong.jpg_80x80.jpg")}} class="itempic J_ItemImg">
 														</div>
 														<div class="item-info">
 															您购买的美康粉黛醉美唇膏已签收，
 															快递单号:373269427868
 														</div>
-																											
-                                                    </div>	
+
+                                                    </div>
 
 													<p class="s-row s-main-content">
 															查看详情 <i class="am-icon-angle-right"></i>
@@ -172,16 +172,16 @@
 											<div class="s-msg-content i-msg-downup-wrap">
 												<div class="i-msg-downup-con">
 													<a class="i-markRead" target="_blank" href="record.html">
-													<div class="m-item">	
-														<div class="item-pic">															
+													<div class="m-item">
+														<div class="item-pic">
 																	<img src={{asset("Home/images/kouhong.jpg_80x80.jpg")}} class="itempic J_ItemImg">
 														</div>
 														<div class="item-info">
 															<p class="item-comment">您购买的美康粉黛醉美唇膏卖家已退款</p>
 															<p class="item-time">2015-12-21&nbsp;17:38:29</p>
 														</div>
-																											
-                                                    </div>	
+
+                                                    </div>
 
 													<p class="s-row s-main-content">
 															<a href="record.html">钱款去向</a> <i class="am-icon-angle-right"></i>
@@ -222,49 +222,9 @@
 				</div>
 			</div>
 
-			<aside class="menu">
-				<ul>
-					<li class="person">
-						<a href="index.html">个人中心</a>
-					</li>
-					<li class="person">
-						<a href="#">个人资料</a>
-						<ul>
-							<li> <a href="information.html">个人信息</a></li>
-							<li> <a href="safety.html">安全设置</a></li>
-							<li> <a href="address.html">收货地址</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的交易</a>
-						<ul>
-							<li><a href="order.html">订单管理</a></li>
-							<li> <a href="change.html">退款售后</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的资产</a>
-						<ul>
-							<li> <a href="coupon.html">优惠券 </a></li>
-							<li> <a href="bonus.html">红包</a></li>
-							<li> <a href="bill.html">账单明细</a></li>
-						</ul>
-					</li>
+            @include("Home.UserInfo.public.sidebar")
 
-					<li class="person">
-						<a href="#">我的小窝</a>
-						<ul>
-							<li> <a href="collection.html">收藏</a></li>
-							<li> <a href="foot.html">足迹</a></li>
-							<li> <a href="comment.html">评价</a></li>
-							<li class="active"> <a href="news.html">消息</a></li>
-						</ul>
-					</li>
-
-				</ul>
-
-			</aside>
-		</div>
+        </div>
 
 	</body>
 

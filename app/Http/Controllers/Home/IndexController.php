@@ -12,5 +12,4 @@ class IndexController extends Controller
     {
         return view('Home.index');
     }
-
 }

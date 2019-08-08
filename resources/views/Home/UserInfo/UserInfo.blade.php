@@ -176,7 +176,7 @@
 									<a href="collection.html"><li class="am-u-sm-4"><i class="am-icon-heart am-icon-md"></i><img src="images/iconsmall1.png"/><p>我的收藏</p></li></a>
 									<a href="home/home.html"><li class="am-u-sm-4"><i class="am-icon-gift am-icon-md"></i><img src="images/iconsmall0.png"/><p>为你推荐</p></li></a>
 									<a href="comment.html"><li class="am-u-sm-4"><i class="am-icon-pencil am-icon-md"></i><img src="images/iconsmall3.png"/><p>好评宝贝</p></li></a>
-									<a href="foot.html"><li class="am-u-sm-4"><i class="am-icon-clock-o am-icon-md"></i><img src="images/iconsmall2.png"/><p>我的足迹</p></li></a>                                                                        
+									<a href="foot.html"><li class="am-u-sm-4"><i class="am-icon-clock-o am-icon-md"></i><img src="images/iconsmall2.png"/><p>我的足迹</p></li></a>
 								</ul>
 							</div>
 							<!--物流 -->
@@ -486,58 +486,16 @@
 						</p>
 					</div>
 				</div>
-
 			</div>
 
-			<aside class="menu">
-				<ul>
-					<li class="person active">
-						<a href="index.html">个人中心</a>
-					</li>
-					<li class="person">
-						<a href="#">个人资料</a>
-						<ul>
-							<li> <a href="information.html">个人信息</a></li>
-							<li> <a href="safety.html">安全设置</a></li>
-							<li> <a href="address.html">收货地址</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的交易</a>
-						<ul>
-							<li><a href="order.html">订单管理</a></li>
-							<li> <a href="change.html">退款售后</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的资产</a>
-						<ul>
-							<li> <a href="coupon.html">优惠券 </a></li>
-							<li> <a href="bonus.html">红包</a></li>
-							<li> <a href="bill.html">账单明细</a></li>
-						</ul>
-					</li>
-
-					<li class="person">
-						<a href="#">我的小窝</a>
-						<ul>
-							<li> <a href="collection.html">收藏</a></li>
-							<li> <a href="foot.html">足迹</a></li>
-							<li> <a href="comment.html">评价</a></li>
-							<li> <a href="news.html">消息</a></li>
-						</ul>
-					</li>
-
-				</ul>
-
-			</aside>
+            @include("Home.UserInfo.public.sidebar")
 		</div>
 		<!--引导 -->
 		<div class="navCir">
 			<li><a href="home/home.html"><i class="am-icon-home "></i>首页</a></li>
 			<li><a href="home/sort.html"><i class="am-icon-list"></i>分类</a></li>
-			<li><a href="home/shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>	
-			<li class="active"><a href="index.html"><i class="am-icon-user"></i>我的</a></li>					
+			<li><a href="home/shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>
+			<li class="active"><a href="index.html"><i class="am-icon-user"></i>我的</a></li>
 		</div>
 	</body>
 

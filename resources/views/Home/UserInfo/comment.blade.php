@@ -112,14 +112,14 @@
 										<div class="comment-list">
 											<ul class="item-list">
 
-												
+
 												<div class="comment-top">
 													<div class="th th-price">
 														<td class="td-inner">评价</td>
 													</div>
 													<div class="th th-item">
 														<td class="td-inner">商品</td>
-													</div>													
+													</div>
 												</div>
 												<li class="td td-item">
 													<div class="item-pic">
@@ -158,19 +158,19 @@
 
 								</div>
 								<div class="am-tab-panel am-fade" id="tab2">
-									
+
 									<div class="comment-main">
 										<div class="comment-list">
 											<ul class="item-list">
-												
-												
+
+
 												<div class="comment-top">
 													<div class="th th-price">
 														<td class="td-inner">评价</td>
 													</div>
 													<div class="th th-item">
 														<td class="td-inner">商品</td>
-													</div>													
+													</div>
 												</div>
 												<li class="td td-item">
 													<div class="item-pic">
@@ -178,8 +178,8 @@
 															<img src={{asset("Home/images/kouhong.jpg_80x80.jpg")}} class="itempic">
 														</a>
 													</div>
-												</li>											
-												
+												</li>
+
 												<li class="td td-comment">
 													<div class="item-title">
 														<div class="item-opinion">好评</div>
@@ -191,7 +191,7 @@
 													</div>
 													<div class="item-comment">
 														宝贝非常漂亮，超级喜欢！！！ 口红颜色很正呐，还有第两支半价，买三支免单一支的活动，下次还要来买。就是物流太慢了，还要我自己去取快递，店家不考虑换个物流么？
-													<div class="filePic"><img src={{asset("Home/images/image.jpg")}} alt=""></div>	
+													<div class="filePic"><img src={{asset("Home/images/image.jpg")}} alt=""></div>
 													</div>
 
 													<div class="item-info">
@@ -206,8 +206,8 @@
 											</ul>
 
 										</div>
-									</div>									
-									
+									</div>
+
 								</div>
 							</div>
 						</div>
@@ -240,48 +240,8 @@
 				</div>
 			</div>
 
-			<aside class="menu">
-				<ul>
-					<li class="person">
-						<a href="index.html">个人中心</a>
-					</li>
-					<li class="person">
-						<a href="#">个人资料</a>
-						<ul>
-							<li> <a href="information.html">个人信息</a></li>
-							<li> <a href="safety.html">安全设置</a></li>
-							<li> <a href="address.html">收货地址</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的交易</a>
-						<ul>
-							<li><a href="order.html">订单管理</a></li>
-							<li> <a href="change.html">退款售后</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的资产</a>
-						<ul>
-							<li> <a href="coupon.html">优惠券 </a></li>
-							<li> <a href="bonus.html">红包</a></li>
-							<li> <a href="bill.html">账单明细</a></li>
-						</ul>
-					</li>
+            @include("Home.UserInfo.public.sidebar")
 
-					<li class="person">
-						<a href="#">我的小窝</a>
-						<ul>
-							<li> <a href="collection.html">收藏</a></li>
-							<li> <a href="foot.html">足迹</a></li>
-							<li class="active"> <a href="comment.html">评价</a></li>
-							<li> <a href="news.html">消息</a></li>
-						</ul>
-					</li>
-
-				</ul>
-
-			</aside>
 		</div>
 
 	</body>

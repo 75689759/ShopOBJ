@@ -348,10 +348,13 @@ Route::prefix('Admin')->namespace('Admin')->group(function(){
         Route::get('/','PhotoController@index')->name('Advertising');
     });
 
-    // 
+    //分类管理
     Route::namespace('PhotoList')->prefix('Sort_Ads')->group(function(){
         Route::get('/','PhotoController@sort')->name('Sort_Ads');
+        //广告分类
+        Route::post('/addwangcai','PhotoController@addwangcai')->name('addwangcai');
     });
+
 
     /**************************************************交易管理**************************************************/
 
