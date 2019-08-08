@@ -20,8 +20,6 @@ class LoginController extends Controller
     //登录页面渲染
     public function index()
     {
-        // dd(cookie());
-        dd(session('user'));
         return view('Home.Login.login');
     }
     public function DoLogin(Request $request)
