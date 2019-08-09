@@ -141,7 +141,7 @@ function Competence_del(obj,id){
 }
 /*修改权限*/
 function Competence_modify(id){
-		window.location.href ="Competence.html?="+id;
+		window.location.href ="{{route('Admin_Compet')}}";
 };	
 /*字数限制*/
 function checkLength(which) {

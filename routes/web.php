@@ -499,4 +499,9 @@ Route::prefix('Admin')->namespace('Admin')->group(function(){
     Route::namespace('AdminList')->prefix('Admin_Info')->group(function(){
         Route::get('/','AdminController@info')->name('Admin_Info');
     });
+
+    //编辑权限管理
+    Route::namespace('AdminList')->prefix('Admin_Compet')->group(function(){
+        Route::get('/','AdminController@compet')->name('Admin_Compet');
+    });
 });
