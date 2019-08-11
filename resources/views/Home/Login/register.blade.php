@@ -36,63 +36,69 @@
 
 							<div class="am-tabs-bd">
 								<div class="am-tab-panel am-active">
-									<form method="post">
+									<form action="{{ route('ToRegister') }}" method="post">									
+										{{ csrf_field() }}
+										<div class="user-pass">
+											<label for="uname"><i class="am-icon-user"></i></label>
+											<input type="text" name="uname" id="uname" placeholder="请输入用户名">
+										</div>		
+										<div class="user-email">
+											<label for="email"><i class="am-icon-envelope-o"></i></label>
+											<input type="email" name="email" id="email" placeholder="请输入邮箱账号">
+										</div>										
+										<div class="user-pass">
+											<label for="password"><i class="am-icon-lock"></i></label>
+											<input type="password" name="pwd" id="password" placeholder="设置密码">
+										</div>										
+										<div class="user-pass">
+											<label for="passwordRepeat"><i class="am-icon-lock"></i></label>
+											<input type="password" name="repwd" id="passwordRepeat" placeholder="确认密码">
+										</div>	
+											{{-- <div class=" links">
+											<label for="reader-me"></label>
+												<input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
+											</div> --}}
+											<div class="am-cf">
+												<input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+											</div>
+									</form>
+									
 										
-							   <div class="user-email">
-										<label for="email"><i class="am-icon-envelope-o"></i></label>
-										<input type="email" name="" id="email" placeholder="请输入邮箱账号">
-                 </div>										
-                 <div class="user-pass">
-								    <label for="password"><i class="am-icon-lock"></i></label>
-								    <input type="password" name="" id="password" placeholder="设置密码">
-                 </div>										
-                 <div class="user-pass">
-								    <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
-								    <input type="password" name="" id="passwordRepeat" placeholder="确认密码">
-                 </div>	
-                 
-                 </form>
-                 
-								 <div class="login-links">
-										<label for="reader-me">
-											<input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
-										</label>
-							  	</div>
-										<div class="am-cf">
-											<input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
-										</div>
-
+								
 								</div>
+							
 
 								<div class="am-tab-panel">
-									<form method="post">
-                 <div class="user-phone">
-								    <label for="phone"><i class="am-icon-mobile-phone am-icon-md"></i></label>
-								    <input type="tel" name="" id="phone" placeholder="请输入手机号">
-                 </div>																			
+
+									<form action="{{ route('PhoneToRegister') }}" method="post">
+										{{ csrf_field() }}
+										<div class="user-pass">
+											<label for="uname"><i class="am-icon-user"></i></label>
+											<input type="text" name="uname" id="uname" placeholder="请输入用户名">
+										</div>
+                 						<div class="user-phone">
+											<label for="phone"><i class="am-icon-mobile-phone am-icon-md"></i></label>
+											<input type="tel" name="phone" id="phone" placeholder="请输入手机号">
+                 						</div>																			
 										<div class="verification">
 											<label for="code"><i class="am-icon-code-fork"></i></label>
-											<input type="tel" name="" id="code" placeholder="请输入验证码">
-											<a class="btn" href="javascript:void(0);" onClick="sendMobileCode();" id="sendMobileCode">
-												<span id="dyMobileButton">获取</span></a>
+											<input type="tel" name="code" id="code" placeholder="请输入验证码">
+											<a class="btn" href="javascript:void(0);" onClick="sendMobileCode(this);" id="sendMobileCode">
+											<span id="dyMobileButton">获取</span></a>
 										</div>
-                 <div class="user-pass">
-								    <label for="password"><i class="am-icon-lock"></i></label>
-								    <input type="password" name="" id="password" placeholder="设置密码">
-                 </div>										
-                 <div class="user-pass">
-								    <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
-								    <input type="password" name="" id="passwordRepeat" placeholder="确认密码">
-                 </div>	
-									</form>
-								 <div class="login-links">
-										<label for="reader-me">
-											<input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
-										</label>
-							  	</div>
+                 						<div class="user-pass">
+											<label for="password"><i class="am-icon-lock"></i></label>
+											<input type="password" name="pwd" id="password" placeholder="设置密码">
+										</div>										
+										<div class="user-pass">
+											<label for="passwordRepeat"><i class="am-icon-lock"></i></label>
+											<input type="password" name="repwd" id="passwordRepeat" placeholder="确认密码">
+										</div>	
 										<div class="am-cf">
 											<input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
 										</div>
+									</form>
+										
 								
 									<hr>
 								</div>
@@ -133,4 +139,48 @@
 					</div>
 	</body>
 
+	<script>
+		function sendMobileCode(obj){
+			//获取用户验证码
+			let phone = $('#phone').val();
+			//验证格式
+			let phone_preg = /^1{1}[3-9]{1}[\d]{9}$/;
+
+			if(!phone_preg.test(phone)){
+				return false;
+			}
+
+			$(obj).attr('disabled',true);
+			$(obj).css('color','#ccc');
+			$(obj).css('cursor','no-drop');
+			$('#dyMobileButton').css('color','#ccc');
+			let time = null;
+			if($('#dyMobileButton').html() == '获取'){
+				let i = 60;
+				time = setInterval(function(){
+					i--;
+					$('#dyMobileButton').html('('+i+')s');
+					if(i<1){
+						$(obj).attr('disabled',false);
+						$(obj).css('color','#333');
+						$(obj).css('cursor','pointer');
+						$('#dyMobileButton').css('color','#333');
+						$('#dyMobileButton').html('获取');
+						clearInterval(time);
+					}
+				},1000);
+			}
+
+
+			//发送ajax 
+			$.get('/Home/Register/sendphone',{phone},function(res){
+				if(res.error_code == 0){
+					alert('发送成功，验证码10分钟内有效');
+				}else{
+					alert('发送失败');
+				}
+			},'json')
+
+		}
+	</script>
 </html>

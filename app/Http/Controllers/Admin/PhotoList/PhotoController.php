@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\PhotoList;
 
+use App\users;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\wangcai;
@@ -44,17 +45,22 @@ class PhotoController extends Controller
     //添加广告分类
     public function addwangcai(Request $request)
     {
-
-        $name = $request['name'];
-        $explain = $request['explain'];
-        $astatus = $request['astatus'];
-        if(count($name|$explain|$astatus)>0){
-            wangcai::wangcai([
-                'name'=>$name,
-                'explain'=>$explain,
-                'astatus'=>$astatus
-            ]);
-            return back()->with('');
+        //接收数据
+        $arr = $request->toArray();
+        $name = $arr['name'];
+        $explain = $arr['explain'];
+        $astatus = $arr['astatus'];
+        //数据库插入数据
+        $res = wangcai::create([
+            'name' => $name,
+            '$explain' => $explain,
+            '$astatus' => $astatus,
+        ]);
+        //判断是否为空
+        if($res){
+            return "1";
+        }else{
+            return "2";
         }
 
 //        dd($request->toArray());
