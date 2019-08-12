@@ -52,23 +52,24 @@
 
 											<div class="login_icon"><img src="images/login.png" /></div>
 
-											<form class="">
+											<form method="post" action="{{ route('MakeLogin') }}" class="">
+								{{ csrf_field() }}
+
 												<fieldset>
 										<ul>
-   <li class="frame_style form_error"><label class="user_icon"></label><input name="用户名" type="text"  id="username"/><i>用户名</i></li>
-   <li class="frame_style form_error"><label class="password_icon"></label><input name="密码" type="password"   id="userpwd"/><i>密码</i></li>
-   <li class="frame_style form_error"><label class="Codes_icon"></label><input name="验证码" type="text"   id="Codes_text"/><i>验证码</i><div class="Codes_region"></div></li>
+   <li class="frame_style form_error"><label class="user_icon"></label><input name="uname" type="text"  id="username"/><i>用户名</i></li>
+   <li class="frame_style form_error"><label class="password_icon"></label><input name="pwd" type="password"   id="userpwd"/><i>密码</i></li>
    
   </ul>
 		<div class="space"></div>
 
 		<div class="clearfix">
-			<label class="inline">
+			{{-- <label class="inline">
 				<input type="checkbox" class="ace">
 				<span class="lbl">保存密码</span>
-			</label>
+			</label> --}}
 
-			<button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="login_btn">
+			<button type="submit" class="width-35 pull-right btn btn-sm btn-primary" id="login_btn">
 				<i class="icon-key"></i>
 				登陆
 			</button>
