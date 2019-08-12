@@ -20,6 +20,7 @@ Route::prefix('Home')->namespace('Home')->group(function () {
     Route::namespace('Login')->prefix('Login')->group(function () {
         Route::get('/', 'LoginController@index')->name('Login');
         Route::post('/', 'LoginController@DoLogin')->name('DoLogin');
+        Route::get('logout', 'LoginController@Logout')->name('Logout');
     });
 
     // 注册
@@ -40,6 +41,23 @@ Route::prefix('Home')->namespace('Home')->group(function () {
     Route::namespace('Goods')->prefix('Goods')->group(function () {
         //商品详情
         Route::get('/', 'GoodsController@index')->name('Introduction');
+        //商品搜索
+        Route::get('/search', 'GoodsController@Search')->name('Search');
+    });
+
+
+    //结算
+    Route::namespace('Pay')->prefix('pay')->group(function () {
+        //结算页面
+        Route::get('/', 'PayController@index')->name('Pay');
+        //付款成功页面
+        Route::get('/success', 'PayController@Success')->name('Success');
+    });
+
+    //聊天
+    Route::namespace('Chat')->prefix('chat')->group(function () {
+        //结算页面
+        Route::get('/', 'ChatController@index')->name('Chat');
     });
 
 
@@ -231,7 +249,7 @@ Route::prefix('Admin')->namespace('Admin')->group(function () {
 
     //登录
     Route::namespace('Login')->prefix('Login')->group(function () {
-        Route::get('/', 'LoginController@index')->name('Login');
+        Route::get('/', 'LoginController@index')->name('AdminLogin');
         Route::post('/', 'LoginController@Login')->name('MakeLogin');
     });
 
@@ -418,5 +436,10 @@ Route::prefix('Admin')->namespace('Admin')->group(function () {
     //个人信息
     Route::namespace('AdminList')->prefix('Admin_Info')->group(function () {
         Route::get('/', 'AdminController@info')->name('Admin_Info');
+    });
+
+    //编辑权限管理
+    Route::namespace('AdminList')->prefix('Admin_Compet')->group(function () {
+        Route::get('/', 'AdminController@compet')->name('Admin_Compet');
     });
 });

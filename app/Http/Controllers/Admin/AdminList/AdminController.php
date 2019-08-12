@@ -21,4 +21,9 @@ class AdminController extends Controller
     public function info(){
     	return view('Admin.AdminList.Admin_Info');
     }
+
+    //后台编辑权限模板
+    public function compet(){
+        return view('Admin.AdminList.Admin_Compet');
+    }
 }

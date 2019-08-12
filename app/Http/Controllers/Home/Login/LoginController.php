@@ -106,4 +106,10 @@ class LoginController extends Controller
             'terrace' => '前台',
         ]);
     }
+
+    public function Logout()
+    {
+        session()->forget('user');
+        return "<script>location.href='/Home/Login';</script>";
+    }
 }

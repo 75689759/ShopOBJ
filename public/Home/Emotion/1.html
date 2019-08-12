@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // if (window.XMLHttpRequest) {
+            //     // code for IE7+, Firefox, Chrome, Opera, Safari
+
+            //     xmlhttp = new XMLHttpRequest();
+            // } else {
+            //     // code for IE6, IE5
+
+            //     xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            // }
+
+            // xmlhttp.open("GET", "Emotion.xml", false);
+
+            // xmlhttp.send();
+
+            // xmlDoc = xmlhttp.responseXML;
+            // console.log(xmlDoc);
+            // var loadXML = function(xmlFile) {
+            //     var xmlDoc;
+            //     if (window.ActiveXObject) {
+            //         xmlDoc = new ActiveXObject("Microsoft.XMLDOM"); //IE浏览器
+            //         xmlDoc.async = false;
+            //         xmlDoc.load(xmlFile);
+            //     } else if (
+            //         (isFirefox = navigator.userAgent.indexOf("Firefox") > 0)
+            //     ) {
+            //         //火狐浏览器
+            //         //else if (document.implementation && document.implementation.createDocument) {//这里主要是对谷歌浏览器进行处理
+            //         xmlDoc = document.implementation.createDocument(
+            //             "",
+            //             "",
+            //             null
+            //         );
+            //         xmlDoc.load(xmlFile);
+            //     } else {
+            //         //谷歌浏览器
+            //         var xmlhttp = new window.XMLHttpRequest();
+            //         xmlhttp.open("GET", xmlFile, false);
+            //         xmlhttp.send(null);
+            //         if (xmlhttp.readyState == 4) {
+            //             xmlDoc = xmlhttp.responseXML.documentElement;
+            //         }
+            //     }
+            //     return xmlDoc;
+            // };
+            // loadXML("Emotion.xml");
+            // var xmlFileName = "Emotion.xml";
+            // var xmlDoc = "";
+            // if (window.ActiveXObject) {
+            //     // IE
+            //     var activeXNameList = new Array(
+            //         "MSXML2.DOMDocument.6.0",
+            //         "MSXML2.DOMDocument.5.0",
+            //         "MSXML2.DOMDocument.4.0",
+            //         "MSXML2.DOMDocument.3.0",
+            //         "MSXML2.DOMDocument",
+            //         "Microsoft.XMLDOM",
+            //         "MSXML.DOMDocument"
+            //     );
+            //     for (var h = 0; h < activeXNameList.length; h++) {
+            //         try {
+            //             xmlDoc = new ActiveXObject(activeXNameList[h]);
+            //         } catch (e) {
+            //             continue;
+            //         }
+            //         if (xmlDoc) break;
+            //     }
+            // } else if (
+            //     document.implementation &&
+            //     document.implementation.createDocument
+            // ) {
+            //     //非 IE
+            //     xmlDoc = document.implementation.createDocument("", "", null);
+            // } else {
+            //     alert(
+            //         "can not create XML DOM object, update your browser please..."
+            //     );
+            // }
+            // xmlDoc.async = false; //同步,防止后面程序处理时遇到文件还没加载完成出现的错误,故同步等XML文件加载完再做后面处理
+            // xmlDoc.load(xmlFileName); //加载XML
+            // function parseXML() {
+            //     try {
+            //         xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+            //     } catch (e) {
+            //         try {
+            //             xmlDoc = document.implementation.createDocument(
+            //                 "",
+            //                 "",
+            //                 null
+            //             );
+            //         } catch (e) {
+            //             alert(e.message);
+            //             return;
+            //         }
+            //     }
+            //     xmlDoc.async = false;
+            //     xmlDoc.load("Emotion.xml");
+            // }
+            // parseXML();
+            // function createXMLDom() {
+            //     if (window.ActiveXObject)
+            //         var xmldoc = new ActiveXObject("Microsoft.XMLDOM");
+            //     else if (
+            //         document.implementation &&
+            //         document.implementation.createDocument
+            //     )
+            //         var xmldoc = document.implementation.createDocument(
+            //             "",
+            //             "doc",
+            //             null
+            //         );
+            //     xmldoc.async = false;
+            //     //为了和FireFox一至，这里不能改为False;
+            //     xmldoc.preserveWhiteSpace = true;
+            //     return xmldoc;
+            // }
+            // //加载XML文件。
+            // var xmlDom = createXMLDom();
+            // xmlDom.load("Emotion.xml");
+            // function createXMLDom() {
+            //     if (window.ActiveXObject) {
+            //         var xmldoc = new ActiveXObject("Microsoft.XMLDOM");
+            //     } else if (
+            //         document.implementation &&
+            //         document.implementation.createDocument
+            //     ) {
+            //         var xmldoc = document.implementation.createDocument(
+            //             "",
+            //             "doc",
+            //             null
+            //         );
+            //         xmldoc.async = false;
+            //         //为了和FireFox一至，这里不能改为False;
+            //         xmldoc.preserveWhiteSpace = true;
+            //     }
+            //     return xmldoc;
+            // }
+            // //加载XML文件。
+            // var xmlDom = createXMLDom();
+            // console.log(xmlDom);
+            // xmlDom.load("../Emotion.xml");
+
+            // function GetXmlDocument(fileUrl) {
+            //     var xmlDoc;
+            //     try {
+            //         //internet explorer
+            //         xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+            //     } catch (e) {
+            //         try {
+            //             /*firefox, mozilla, opera, etc.*/
+            //             xmlDoc = document.implementation.createdocument(
+            //                 "",
+            //                 "",
+            //                 null
+            //             );
+            //         } catch (e) {
+            //             alert(e.message);
+            //             return;
+            //         }
+            //     }
+            //     xmlDoc.async = false; //关闭异步加载，这样可确保在文档完整加载之前，解析器不会继续执行脚本
+            //     xmlDoc.load(fileUrl);
+            //     return xmlDoc;
+            // }
+
+            // var xhr = new XMLHttpRequest();
+            // // console.log(xhr.readyState);
+
+            // //事件处理函数
+            // xhr.onreadystatechange = function() {
+            //     //事件处理---响应信息接受完成之后---readyState ==4
+            //     // console.log(xhr.readyState);
+
+            //     //如果请求php文件可以使用此种方式
+            //     if (xhr.readyState == 4) {
+            //         //判断响应的状态
+            //         if (
+            //             (xhr.status >= 200 && xhr.status < 300) ||
+            //             xhr.status == 304
+            //         ) {
+            //             //查看响应信息
+            //             console.log(xhr.responseText);
+            //             // console.log(xhr);
+            //         }
+
+            //         // console.log(xhr);
+            //     } else {
+            //         console.log(xhr.readyState);
+            //     }
+            // };
+            // xhr.open("GET", "./Emotion.xml", true);
+            // // xhr.open('GET','./1.jpg',true);//测试 --- 图片的地址
+
+            // //发送请求
+            // xhr.send();
+            // console.log(xhr.readyState);
+
+            //初始化请求---open三个参数 第一个：请求方式 第二个：请求的url 第三个：是否使用异步 boolean true表示异步 false表示同步
+            // xhr.open('GET','./1.html',true);
+
+            // console.log(xhr);
+
+            // function getxmlDoc(xmlFile) {
+            //     var xmlDoc;
+            //     if (window.ActiveXObject) {
+            //         alert("ie");
+            //         xmlDoc = new ActiveXObject("Microsoft.XMLDOM"); //IE
+            //         xmlDoc.async = false;
+            //         xmlDoc.load(xmlFile);
+            //     } else if (
+            //         (isFirefox = navigator.userAgent.indexOf("Firefox") > 0)
+            //     ) {
+            //         alert("火狐");
+            //         //火狐
+
+            //         xmlDoc = document.implementation.createDocument(
+            //             "",
+            //             "",
+            //             null
+            //         );
+            //         console.log(xmlDoc);
+            //         xmlDoc.load(xmlFile);
+            //     } else {
+            //         alert("谷歌");
+            //         //谷歌
+            //         var xmlhttp = new window.XMLHttpRequest();
+            //         xmlhttp.open("GET", xmlFile, false);
+            //         xmlhttp.send(null);
+            //         if (xmlhttp.readyState == 4) {
+            //             alert("xxx");
+            //             xmlDoc = xmlhttp.responseXML.documentElement;
+            //         }
+            //     }
+
+            //     return xmlDoc;
+            // }
+            // var a = getxmlDoc("../Emotion.xml");
+
+            // function loadXMLDoc(dname) {
+            //     if (window.XMLHttpRequest) {
+            //         xhttp = new XMLHttpRequest();
+            //     } else {
+            //         xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            //     }
+            //     xhttp.open("GET", dname, false);
+            //     xhttp.send();
+            //     return xhttp.responseXML;
+            // }
+            // loadXMLDoc("../Emotion.xml");
+            // var a = GetXmlDocument("../Emotion.xml");
+            // console.log(a);
+
+            // function loadXMLDoc(dname) {
+            //     try {
+            //         //Internet Explorer
+            //         xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+            //     } catch (e) {
+            //         try {
+            //             //Firefox, Mozilla, Opera, etc.
+            //             xmlDoc = document.implementation.createDocument(
+            //                 "",
+            //                 "",
+            //                 null
+            //             );
+            //         } catch (e) {
+            //             alert(e.message);
+            //         }
+            //     }
+            //     try {
+            //         xmlDoc.async = false;
+            //         xmlDoc.load(dname);
+            //         return xmlDoc;
+            //     } catch (e) {
+            //         alert(e.message);
+            //     }
+            //     return null;
+            // }
+
+            // var xmldoc = loadXMLDoc("../Emotion.xml");
+
+            function createXMLDom() {
+                if (window.ActiveXObject)
+                    var xmldoc = new ActiveXObject("Microsoft.XMLDOM");
+                else if (
+                    document.implementation &&
+                    document.implementation.createDocument
+                )
+                    var xmldoc = document.implementation.createDocument(
+                        "",
+                        "doc",
+                        null
+                    );
+                xmldoc.async = false;
+                //为了和FireFox一至，这里不能改为False;
+                xmldoc.preserveWhiteSpace = true;
+                return xmldoc;
+            }
+            //加载XML文件。
+            var xmlDom = createXMLDom();
+            console.log(xmlDom);
+            xmlDom.load("Emotion.xml");
+        </script>
+    </body>
+</html>
