@@ -312,7 +312,7 @@ Route::prefix('Admin')->namespace('Admin')->group(function(){
 
     //登录
     Route::namespace('Login')->prefix('Login')->group(function(){
-        Route::get('/','LoginController@index')->name('Login');
+        Route::get('/','LoginController@index')->name('AdminLogin');
     });
 
     /**************************************************产品管理**************************************************/

@@ -195,7 +195,7 @@ $('.change_Password').on('click', function(){
 	 icon:2,
     }, 
 	function(){
-	  location.href="{{route('Login')}}";
+	  location.href="{{route('AdminLogin')}}";
         
     });
 });
