@@ -6,10 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="Cache-Control" content="no-siteapp" />
         <link href={{ asset("admin/assets/css/bootstrap.min.css") }} rel="stylesheet" />
-        <link rel="stylesheet" href={{ asset("admin/css/style.css") }}/>       
+        <link rel="stylesheet" href="css/style.css") }}/>       
         <link href={{ asset("admin/assets/css/codemirror.css") }} rel="stylesheet">
         <link rel="stylesheet" href={{ asset("admin/assets/css/ace.min.css") }} />
-        <link rel="stylesheet" href={{ asset("admin/font/css/font-awesome.min.css") }} />
+        <link rel="stylesheet" href="font/css/font-awesome.min.css") }} />
         <!--[if lte IE 8]>
 		  <link rel="stylesheet" href={{ asset("admin/assets/css/ace-ie.min.css") }} />
 		<![endif]-->
@@ -21,23 +21,24 @@
         <script src={{ asset("admin/assets/layer/layer.js") }} type="text/javascript" ></script>          
         <script src={{ asset("admin/assets/laydate/laydate.js") }} type="text/javascript"></script>
         <script src={{ asset("admin/js/dragDivResize.js") }} type="text/javascript"></script>
-<title>修改权限</title>
+<title>添加权限</title>
 </head>
 
 <body>
 <div class="Competence_add_style clearfix">
   <div class="left_Competence_add">
-   <div class="title_name">修改权限</div>
+   <div class="title_name">添加权限</div>
     <div class="Competence_add">
      <div class="form-group"><label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 权限名称 </label>
-       <div class="col-sm-9"><input type="text" id="form-field-1" placeholder="" value="{{ $direction['roles'] }}"  name="权限名称" class="col-xs-10 col-sm-5"></div>
+       <div class="col-sm-9"><input type="text" id="form-field-1" placeholder=""  name="权限名称" class="col-xs-10 col-sm-5"></div>
 	</div>
-     <div class="form-group"><label class="col-sm-2 control-label no-padding-right"  for="form-field-1"> 权限描述 </label>
-      <div class="col-sm-9"><textarea name="权限描述" class="form-control" id="form_textarea"  placeholder="" onkeyup="checkLength(this);">{{ $direction['deriction'] }}</textarea><span class="wordage">剩余字数：<span id="sy" style="color:Red;">200</span>字</span></div>
+	<div class="form-group"><label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 权限描述 </label>
+		<div class="col-sm-9"><textarea name="权限描述" class="form-control" id="form_textarea" placeholder="" onkeyup="checkLength(this);"></textarea><span class="wordage">剩余字数：<span id="sy" style="color:Red;">200</span>字</span></div>
 	</div>
+    
    <!--按钮操作-->
    <div class="Button_operation">
-		<button onclick="article_save_submit();" id="submit" class="btn btn-primary radius" type="submit"><i class="fa fa-save "></i> 保存并提交</button>
+		<button class="btn btn-primary radius" id="submit" type="button"><i class="fa fa-save "></i> 保存并提交</button>
 		<button onclick="article_save();" class="btn btn-secondary  btn-warning" type="button"><i class="fa fa-reply"></i> 返回上一步</button>
 		<button onclick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 	</div>
@@ -59,7 +60,7 @@
 						  <dt><label class="middle"><input type="checkbox" value="" class="ace"  name="user-Character-0-0" id="id-disable-check"><span class="lbl">{{ $va['nodefu_name'] }}</span></label></dt>
 						  <dd>
 							  @foreach ($a[$ke]['node'] as $key => $val )
-								  <label class="middle"><input type="checkbox" value="{{ $val['id'] }}" {{ in_array($val['id'], $arr) ? 'checked' : '' }} class="ace node" name="user-Character-0-0-0" id="user-Character-0-0-0"><span class="lbl">{{ $val['node_name'] }}</span></label>
+								  <label class="middle"><input type="checkbox" value="{{ $val['id'] }}" class="ace node" name="user-Character-0-0-0" id="user-Character-0-0-0"><span class="lbl">{{ $val['node_name'] }}</span></label>
 							  @endforeach
 						  </dd>
 					  </dl>
@@ -128,16 +129,15 @@ $(function(){
 		
 	});
 });
-
+//添加职务
 $('#submit').click(function(){
 	var id = [];
-	var node_id = {{ $id }};
 	var roles = $('#form-field-1')[0].value;
 	var deriction = $('#form_textarea')[0].value;
 	//获取权限的id
 	for(var i = 0;i<$('.node').length;i++){
 		if($($('.node')[i])[0].checked){
-			console.log(id.push($($('.node')[i])[0].value));
+			id.push($($('.node')[i])[0].value);
 		};
 	}
 		
@@ -145,14 +145,13 @@ $('#submit').click(function(){
 		//请求方式
 		type : "POST",
 		//请求地址
-		url : "{{ route('Update_Compet') }}",
+		url : "{{ route('AddPowers') }}",
 		//数据，json字符串
-		data : {'_token':'{{csrf_token()}}','id':id,'roles':roles,'deriction':deriction,'node_id':node_id},
+		data : {'_token':'{{csrf_token()}}','id':id,'roles':roles,'deriction':deriction},
 		//请求成功
 		success : function(result) {
 			console.log(result);
 		}
 	});
 });
-
 </script>

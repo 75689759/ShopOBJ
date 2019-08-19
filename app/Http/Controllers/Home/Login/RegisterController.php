@@ -9,6 +9,7 @@ use App\Http\Requests\UsersStore;
 use App\Http\Controllers\Comment\CommentController;
 use Illuminate\Support\Facades\Redis;
 use App\Http\Requests\PhoneUsersStore;
+use App\users_info;
 
 class RegisterController extends Controller
 {
@@ -33,6 +34,14 @@ class RegisterController extends Controller
         ]);
 
         if ($res) {
+            //创建users_info关联表信息
+            users_info::create([
+                'users_id' => $res->id,
+                'profile' => 'default.jpg',
+                'sex' => '1',
+                'jf' => '0',
+                'browse' => '0'
+            ]);
             // 发送邮件
             CommentController::email('blade.email', ['id' => $res->id, 'token' => $res->remember_token], $email, '【悦桔拉拉】注册激活邮件！');
         }

@@ -431,9 +431,10 @@ function link_operating(name,title){
                         <li><a href="#" class="dropdown-toggle"><i class="icon-group"></i><span class="menu-text"> 管理员管理 </span><b class="arrow icon-angle-down"></b></a>
 							<ul class="submenu">
 							
-								<li class="home"><a href="javascript:void(0)" name="{{route('Admin_Competence')}}" title="权限管理"  class="iframeurl"><i class="icon-double-angle-right"></i>权限管理</a></li>
+								<li class="home"><a href="javascript:void(0)" name="{{route('Admin_Competence')}}" title="职位分配"  class="iframeurl"><i class="icon-double-angle-right"></i>职位分配</a></li>
                                 <li class="home"><a href="javascript:void(0)" name="{{route('Admin_Administrator')}}" title="管理员列表" class="iframeurl"><i class="icon-double-angle-right"></i>管理员列表</a></li>
-								  <li class="home"><a href="javascript:void(0)" name="{{route('Admin_Info')}}" title="个人信息" class="iframeurl"><i class="icon-double-angle-right"></i>个人信息</a></li>
+								<li class="home"><a href="javascript:void(0)" name="{{route('Admin_Info')}}" title="个人信息" class="iframeurl"><i class="icon-double-angle-right"></i>个人信息</a></li>
+								<li class="home"><a href="javascript:void(0)" name="{{route('RouteList')}}" title="权限管理" class="iframeurl"><i class="icon-double-angle-right"></i>权限管理</a></li>
 							</ul>
 						</li>
 					</ul>

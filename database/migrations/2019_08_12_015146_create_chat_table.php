@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRolesTable extends Migration
+class CreateChatTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('chat', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('roles', 50)->comment('角色名');
-            $table->text('deriction')->comment('描述');
+            $table->Integer('uid')->comment("第一个用户的id");
+            $table->Integer('uid_to')->comment("第二个用户的id");
+            $table->enum('status', [0, 1])->default(0)->comment('状态：0为显示，1为不显示。默认为0');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('chat');
     }
 }
