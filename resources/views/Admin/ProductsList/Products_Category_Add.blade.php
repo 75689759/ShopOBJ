@@ -66,7 +66,14 @@
           <option value="0">请选择</option>
           <option value="0.5">添加父分类</option>
           @foreach($data as $k=>$v)
-            <option value="{{$v->id}}">{{$v->cname}}</option>
+            @if(substr_count($v->path,",") == 2)
+              {{$v->cname = '|---'.$v->cname}}
+            @endif
+            @if(substr_count($v->path,",") == 3)
+              {{$v->cname = '|---|---'.$v->cname}}
+            @endif
+              <option value="{{$v->id}}">{{$v->cname}}</option>
+            
           @endforeach
         </select>
       </div>

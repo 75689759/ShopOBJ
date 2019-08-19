@@ -48,7 +48,7 @@
          <td>2019-08-06 07:40:00</td>
          <td>待审核</td>
           <td class="td-manage">
-           <a title="店铺详细" href="{{route('Shop_Detailed')}}" class="btn btn-xs btn-info Refund_detailed">详细</a>        
+           <a title="店铺详细" href="{{route('Shop_Detailed')}}?id={{$v->id}}" class="btn btn-xs btn-info Refund_detailed">详细</a>        
           </td>
         </tr>
         @endforeach

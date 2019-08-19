@@ -21,7 +21,8 @@ class ProductsController extends Controller
 
     //后台分类管理模板
     public function category(){
-    	return view('Admin.ProductsList.Products_Category');
+        $data = DB::select("select *,concat(path,id) as paths from cates order by paths asc");
+    	return view('Admin.ProductsList.Products_Category',['data'=>$data]);
     }
 
     //后台添加分类模板
@@ -51,7 +52,27 @@ class ProductsController extends Controller
 
     //后台添加品牌模板
     public function addBrand(){
+        // dd(session('user'));
+        
         return view('Admin.ProductsList.Products_Add_Brand');
+    }
+
+    public function manageadd(Request $request){
+
+        dump($_SESSION);
+
+        // var_dump($request->bname);
+
+        dump($request->file('manage'));
+
+        // if ($request->hasFile('manage')) {
+        //     $path = $request->file('manage')->store(date('Ymd'));
+        // }else{
+        //     return back();
+        // }
+
+        dd($_POST);
+        
     }
 
     //后台添加分类模板

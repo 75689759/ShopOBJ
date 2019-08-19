@@ -38,6 +38,41 @@ class ShopController extends Controller
 
     //后台店铺审核详情模板
     public function detailed(){
-        return view('Admin.Shop.Shop_Detailed');
+
+        $id = $_GET['id'];
+
+        $dataa = DB::table('shop')->where('id',"$id")->get();
+
+        // dd($dataa);
+        foreach ($dataa as $k => $v) {
+            $datea = DB::table('users')->where('id',"$v->users_id")->get();
+        }
+
+        return view('Admin.Shop.Shop_Detailed',['dataa'=>$dataa,'datea'=>$datea]);
+    }
+
+    //后台店铺审核是否通过
+    public function byes(Request $request){
+        // dump($request->input('id'));
+        $id = $request->input('id'); 
+
+        $arr['audit'] = '1';
+
+        $res = DB::table('shop')->where('id',"$id")->update($arr);
+
+        return redirect(route('Shop_Audit'));
+    }
+
+        //后台店铺审核是否通过
+    public function bno(Request $request){
+        dump($request->input('liyou'));
+
+        $id = $request->input('id'); 
+
+        $arr['audit'] = '2';
+
+        // $res = DB::table('shop')->where('id',"$id")->update($arr);
+
+        // return redirect(route('Shop_Audit'));
     }
 }
