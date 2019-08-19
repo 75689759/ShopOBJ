@@ -15,4 +15,9 @@ class users extends Model
         'state',
         'remember_token'
     ];
+
+    public function users_info()
+    {
+        return $this->hasOne(users_info::class);
+    }
 }

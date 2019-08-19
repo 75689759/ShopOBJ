@@ -148,34 +148,6 @@ Route::prefix('Home')->namespace('Home')->group(function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // 个人中心
     Route::namespace('UserInfo')->prefix('UserInfo')->group(function () {
         // 个人资料
@@ -430,7 +402,7 @@ Route::prefix('Admin')->namespace('Admin')->group(function () {
 
     /**************************************************管理员管理**************************************************/
 
-    //权限管理
+    //职位分配
     Route::namespace('AdminList')->prefix('Admin_Competence')->group(function () {
         Route::get('/', 'AdminController@index')->name('Admin_Competence');
     });
@@ -447,6 +419,20 @@ Route::prefix('Admin')->namespace('Admin')->group(function () {
 
     //编辑权限管理
     Route::namespace('AdminList')->prefix('Admin_Compet')->group(function () {
-        Route::get('/', 'AdminController@compet')->name('Admin_Compet');
+        Route::get('/{id}', 'AdminController@compet')->name('Admin_Compet');
+        Route::post('/', 'AdminController@Update_Compet')->name('Update_Compet');
+    });
+
+    //编辑权限管理
+    Route::namespace('AdminList')->prefix('RouteList')->group(function () {
+        Route::get('/', 'AdminController@RouteList')->name('RouteList');
+        Route::post('/AddNodeType', 'AdminController@AddNodeType')->name('AddNodeType');
+        Route::post('/node', 'AdminController@node')->name('Node');
+    });
+
+    //添加职位
+    Route::namespace('AdminList')->prefix('AddPower')->group(function () {
+        Route::get('/', 'AdminController@AddPower')->name('AddPower');
+        Route::post('/', 'AdminController@AddPowers')->name('AddPowers');
     });
 });

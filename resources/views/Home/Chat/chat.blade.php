@@ -185,7 +185,7 @@
         <div class="m-card">
             <header>
                 <img class="avatar" alt="Coffce" src="images/default.jpg" width="40" height="40">
-                <p class="name">name</p>
+                <p class="name">{{ session('user')['uname'] }}</p>
             </header>
             <footer>
                 <input class="search" placeholder="search user...">
@@ -194,7 +194,7 @@
         <!--v-component-->
         <div class="m-list">
             <ul>
-            {{-- <!--v-for-start-->
+            <!--v-for-start
                 <foreach name="list" item="list">
                     <?php
                         // $id = $list['id'];
@@ -216,7 +216,7 @@
                         </a>
                     </if>
                 </foreach>
-            <!--v-for-end--> --}}
+            v-for-end--> 
             </ul>
         </div>
         <!--v-component-->
@@ -224,7 +224,7 @@
     <div class="main">
         <div class="m-message">
         <ul class="chat">
-        <!--v-for-start-->
+        <!--v-for-start
            
 
             {{-- <foreach name="chats" item="chat">
@@ -261,7 +261,7 @@
 		            </li>
 	        	</if>
         	</foreach> --}}
-        <!--v-for-end-->
+        v-for-end-->
         </ul>
         </div>
         <!--v-component-->
@@ -355,29 +355,26 @@
 		$('#bodys').css('display','none');
 		$('#addbq').css('display','block');
 	});
-	
+	var xmlDom;
     /*XML表情*/
-    function createXMLDom(){
-        if (window.ActiveXObject){ 
-            var xmldoc=new ActiveXObject("Microsoft.XMLDOM");
-        }else if (document.implementation&&document.implementation.createDocument){
-            var xmldoc=document.implementation.createDocument("","doc",null);
-            xmldoc.async = false;
-            //为了和FireFox一至，这里不能改为False;
-            xmldoc.preserveWhiteSpace=true;
-        }
-            return xmldoc;
-        
+    function createXMLDom(xmlFile){
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: xmlFile,
+          success: function(date) {
+            xmlDom = date.children[0].children[0].children;
+          },
+          dataType: "xml"
+        }); 
     }
     //加载XML文件。
-    var xmlDom=createXMLDom();
-    console.log(xmlDom);
-    xmlDom.load({{ asset('Home/images/Emotion/Emotion.xml') }});
-    var Emotion = xmlDom.activeElement.childNodes[0].nextElementSibling.children;
+    createXMLDom("Emotion/Emotion.xml"); 
+    var Emotion = xmlDom;
     //遍历xml文件的图片名
     for (var i =  0; i <= Emotion.length-1; i++) {
         var b=Emotion[i];
-        var a = $('<li class="png"><img class="zzz" a="'+i+'" onClick="img(this);" src="images/Emotion/'+b.getAttribute('Thumb')+'"/></li>');
+        var a = $('<li class="png"><img class="zzz" a="'+i+'" onClick="img(this);" src="Emotion/'+b.getAttribute('Thumb')+'"/></li>');
         $('#center').append(a);
     };
     //循环绑定事件
@@ -386,7 +383,7 @@
         (function(j){
             $('.zzz')[j].onmouseover=function(){
                 a = $(this).attr('a');
-                $('#gifImg').attr('src','images/Emotion/'+Emotion[a].getAttribute('Image'));
+                $('#gifImg').attr('src','Emotion/'+Emotion[a].getAttribute('Image'));
                 $('#gif').css('display','block');
             }
             $('.zzz')[j].onmouseout=function(){
@@ -394,6 +391,8 @@
             }
         })(j);
     };
+
+
 
     // $('#content').keydown(function(event){
     // 	if (event.keyCode == 13) {
