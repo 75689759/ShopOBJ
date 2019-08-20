@@ -113,26 +113,16 @@ var setting = {
 	}
 };
 
-var zNodes =[
-	{ id:1, pId:0, name:"商城分类列表", open:true},
-	{ id:11, pId:1, name:"蔬菜水果"},
-	{ id:111, pId:11, name:"蔬菜"},
-	{ id:112, pId:11, name:"苹果"},
-	{ id:113, pId:11, name:"大蒜"},
-	{ id:114, pId:11, name:"白菜"},
-	{ id:115, pId:11, name:"青菜"},
-	{ id:12, pId:1, name:"手机数码"},
-	{ id:121, pId:12, name:"手机 "},
-	{ id:122, pId:12, name:"照相机 "},
-	{ id:13, pId:1, name:"电脑配件"},
-	{ id:131, pId:13, name:"手机 "},
-	{ id:122, pId:13, name:"照相机 "},
-	{ id:14, pId:1, name:"服装鞋帽"},
-	{ id:141, pId:14, name:"手机 "},
-	{ id:42, pId:14, name:"照相机 "},
-];
+	var a = '@json($data)';
+	var obj = JSON.parse(a);
+	var zNodes =[];
+	//产品类型列表
+	for(var i=0;i<=obj.length-1;i++){
+	  zNodes[i] = {id:obj[i].id,pId:obj[i].pid,name:obj[i].cname};
+	}
 		
 var code;
+var loadReady;
 		
 function showCode(str) {
 	if (!code) code = $("#code");

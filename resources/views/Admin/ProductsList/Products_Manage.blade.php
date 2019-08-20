@@ -47,7 +47,6 @@
      <div class="border clearfix">
        <span class="l_f">
         <a href="{{route('Products_Add_Brand')}}"  title="添加品牌" class="btn btn-warning Order_form"><i class="icon-plus"></i>添加品牌</a>
-        <a href="javascript:ovid()" class="btn btn-danger"><i class="icon-trash"></i>批量删除</a>
        </span>
        <span class="r_f">共：<b>234</b>个品牌</span>
      </div>

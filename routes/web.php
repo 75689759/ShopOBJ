@@ -223,6 +223,7 @@ Route::prefix('Admin')->namespace('Admin')->group(function () {
     Route::namespace('Login')->prefix('Login')->group(function () {
         Route::get('/', 'LoginController@index')->name('AdminLogin');
         Route::post('/', 'LoginController@Login')->name('MakeLogin');
+
     });
 
     /**************************************************产品管理**************************************************/
@@ -235,6 +236,8 @@ Route::prefix('Admin')->namespace('Admin')->group(function () {
     //品牌管理
     Route::namespace('Products_List')->prefix('Products_Manage')->group(function () {
         Route::get('/', 'ProductsController@manage')->name('Products_Manage');
+
+        Route::post('/', 'ProductsController@manageadd')->name('Products_Add');
     });
 
     //分类管理
@@ -348,6 +351,10 @@ Route::prefix('Admin')->namespace('Admin')->group(function () {
     //店铺审核
     Route::namespace('Shop')->prefix('Shop_Audit')->group(function () {
         Route::get('/', 'ShopController@audit')->name('Shop_Audit');
+
+        Route::get('/byes', 'ShopController@byes')->name('Shop_byes');
+
+        Route::get('/bno', 'ShopController@bno')->name('Shop_bno');
 
         Route::get('/detailed', 'ShopController@detailed')->name('Shop_Detailed');
     });
