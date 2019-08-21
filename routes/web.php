@@ -59,6 +59,11 @@ Route::prefix('Home')->namespace('Home')->group(function () {
         //结算页面
         Route::get('/', 'ChatController@index')->name('Chat');
     });
+    //购物车
+    Route::namespace('cart')->prefix('cart')->group(function () {
+        //购物车页面
+        Route::get('/', 'CartController@cart')->name('Chat');
+    });
 
 
 
