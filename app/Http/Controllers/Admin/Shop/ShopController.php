@@ -48,7 +48,7 @@ class ShopController extends Controller
             $datea = DB::table('users')->where('id',"$v->users_id")->get();
         }
  
-        return view('Admin.Shop.Shop_Detailed',['dataa'=>$dataa,'datea'=>$dat ea]);
+        return view('Admin.Shop.Shop_Detailed',['dataa'=>$dataa,'datea'=>$datea]);
     }
 
     //后台店铺审核是否通过
