@@ -161,6 +161,7 @@ Route::prefix('Home')->namespace('Home')->group(function () {
 
         // 收货地址
         Route::get('/address', 'UserInfoController@address')->name('address');
+        Route::post('/addaddress', 'UserInfoController@addaddress')->name('addaddress');
 
         // 订单管理
         Route::get('/order', 'UserInfoController@order')->name('order');
@@ -223,7 +224,6 @@ Route::prefix('Admin')->namespace('Admin')->group(function () {
     Route::namespace('Login')->prefix('Login')->group(function () {
         Route::get('/', 'LoginController@index')->name('AdminLogin');
         Route::post('/', 'LoginController@Login')->name('MakeLogin');
-
     });
 
     /**************************************************产品管理**************************************************/
