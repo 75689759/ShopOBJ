@@ -25,11 +25,40 @@
         <script type="text/javascript" src="Widget/swfupload/swfupload.queue.js"></script>
         <script type="text/javascript" src="Widget/swfupload/swfupload.speed.js"></script>
         <script type="text/javascript" src="Widget/swfupload/handlers.js"></script>
+        <style type="text/css">
+  li {
+      font-size: 13px;
+      display: list-item;
+      text-align: -webkit-match-parent;
+      list-style-position: inside;
+      list-style-type: inherit;
+      margin: 0;
+      line-height: 20px;
+    } 
+    
+    .mws-form-message.error {
+    
+    background-color: #ffcbca;
+    border-color: #eb979b;
+    color: #9b4449;
+    margin:0 auto;
+    width:auto;
+    height:auto;
+    }
+
+</style>
 </head>
 
 <body>
 
 <div class=" clearfix">
+	@if(session('error'))
+	  <div class="mws-form-message error">
+	    <ul class="alert alert-danger">
+	      <li>{{ session('error') }}</li>
+	    </ul>
+	  </div>
+	  @endif
 	<form action="{{route('Products_Add')}}" method="POST" enctype="multipart/form-data">
 		{{csrf_field() }}
  	<div id="add_brand" class="clearfix">
@@ -75,3 +104,9 @@
 </body>
 </html>
 
+<script type="text/javascript">
+	  $('.error').click(function(){
+	          $(this).css('display','none');
+	      })
+	  });
+</script>

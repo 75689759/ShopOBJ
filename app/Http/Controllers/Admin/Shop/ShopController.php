@@ -47,7 +47,7 @@ class ShopController extends Controller
         foreach ($dataa as $k => $v) {
             $datea = DB::table('users')->where('id',"$v->users_id")->get();
         }
-
+ 
         return view('Admin.Shop.Shop_Detailed',['dataa'=>$dataa,'datea'=>$datea]);
     }
 

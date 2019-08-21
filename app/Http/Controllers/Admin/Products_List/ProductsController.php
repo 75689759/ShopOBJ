@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin\Products_List;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\cates;
+use App\users;
+use App\brand;
+use App\goods;
 use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
@@ -14,9 +17,44 @@ class ProductsController extends Controller
     	return view('Admin.ProductsList.Products_List');
     }
 
+    //后台产品添加模板
+    public function addshop(Request $request){
+        // dd($request->hasFile('shoplogo'));
+        if ($request->hasFile('shoplogo')) {
+            $path = $request->file('shoplogo')->store(date('Ymd'));
+        }else{
+            return back();
+        }
+
+        if(empty($_POST['goods'] || $_POST['gnum'] || $_POST['store'] || $_POST['brand_id'] || $_POST['antistop'] || $_POST['unit'] || $_POST['original'])){
+            return back();
+            // return back()->with('error','请填写完整产品信息'); 
+        }else{
+            $res = goods::create([
+                'goods' => $_POST['goods'],
+                'gnum' => $_POST['gnum'],
+                'picname' => $path,
+                'unit' => $_POST['unit'],
+                'antistop' => $_POST['antistop'],
+                'brand_id' => $_POST['brand_id'],
+                'original' => $_POST['original'],
+                'store' => $_POST['store']
+            ]);
+            // dd($request->input());
+            return view('Admin.ProductsList.Products_List');
+        }
+
+    }
+
     //后台品牌管理模板
     public function manage(){
-    	return view('Admin.ProductsList.Products_Manage');
+        $res1 = brand::get()->toArray();
+
+        $data = DB::select("select * from cates where ");
+
+        $count = count($res1);
+
+    	return view('Admin.ProductsList.Products_Manage',['res1'=>$res1,'count'=>$count]);
     }
 
     //后台分类管理模板
@@ -27,52 +65,58 @@ class ProductsController extends Controller
 
     //后台添加分类模板
     public function categoryAdd(){
-        // $data = cates::raw("path,',',id as paths")->orderBy('paths','asc')->get();
-        // $data = cates::raw("path,',',id as paths")->orderBy('paths','asc')->toSql();
+
         $data = DB::select("select *,concat(path,id) as paths from cates order by paths asc");
-
-        // $data = cates::findOrFail("concat(path,',',id) as paths")->orderBy('paths','asc')->toSql();
-        // $data = cates::select('*,concat(path,",",id) as paths')->orderBy('paths','asc')->get();
-        // $data = cates::select('*,concat(path,",",id) as paths')->orderBy("paths","asc")->toSql();
-        // $data = $data->toArray();
-        // dd($data);
-
-
-        // DB::select("select *,concat(path,',',id) as paths from cates order by paths asc");
-
-        // dd($data);
 
     	return view('Admin.ProductsList.Products_Category_Add',['data'=>$data]);
     }
 
     //后台添加商品模板
     public function pictureAdd(){
-        return view('Admin.ProductsList.Products_Picture_Add');
+        $res1 = brand::get()->toArray();
+
+        return view('Admin.ProductsList.Products_Picture_Add',['res1'=>$res1]);
     }
 
     //后台添加品牌模板
     public function addBrand(){
-        // dd(session('user'));
+        dump(session());
         
         return view('Admin.ProductsList.Products_Add_Brand');
     }
 
     public function manageadd(Request $request){
 
-        dump($_SESSION);
+        // dd(session('user')['id']);
 
-        // var_dump($request->bname);
+        $uid = session('user')['id'];
 
-        dump($request->file('manage'));
+        $res = DB::select("select id from shop where users_id=$uid");
 
-        // if ($request->hasFile('manage')) {
-        //     $path = $request->file('manage')->store(date('Ymd'));
-        // }else{
-        //     return back();
-        // }
+        foreach ($res as $key => $value) {
+            foreach ($value as $a => $b) {
+                $shopid = $b;
+            }
+        }
 
-        dd($_POST);
-        
+        if ($request->hasFile('manage')) {
+            $path = $request->file('manage')->store(date('Ymd'));
+        }else{
+            return back();
+        }
+
+        if(empty($_POST['bname'] || $_POST['number'] || $_POST['Country'] || $_POST['describe'])){
+            return back()->with('error','请填写完整品牌信息'); 
+        }else{
+            $res = brand::create([
+                'shop_id' => $shopid,
+                'bname' => $_POST['bname'],
+                'number' => $_POST['number'],
+                'blogo' => $path,
+                'Country' => $_POST['Country'],
+                'describe' => $_POST['describe']
+            ]);
+        }
     }
 
     //后台添加分类模板
@@ -106,5 +150,38 @@ class ProductsController extends Controller
             ]);
             return back()->with('error','添加子分类成功');
         }
+    }
+
+    //后台品牌启用禁用
+    public function state(Request $request){
+        $id = $request->input('id');
+        $state = $request->input('state');
+
+        if($state == '1'){
+            $arr = brand::find($id);
+            $res = $arr->update([
+                'state' => '2'
+            ]);
+
+            return back();
+        }elseif($state == '2'){
+            $arr = brand::find($id);
+            $res = $arr->update([
+                'state' => '1'
+            ]);
+
+            return back();
+        }
+    }
+
+    //后台品牌删除
+    public function del(Request $request){
+        // dump($request->input('id'));
+
+        $id = $request->input('id');
+
+        $res = brand::where('id',$id)->delete();
+
+        return back();
     }
 }

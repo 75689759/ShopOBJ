@@ -236,6 +236,8 @@ Route::prefix('Admin')->namespace('Admin')->group(function () {
     //产品类表
     Route::namespace('Products_List')->prefix('Products_List')->group(function () {
         Route::get('/', 'ProductsController@index')->name('Products_List');
+
+        Route::post('/addshop', 'ProductsController@addshop')->name('Products_ShopAdd');
     });
 
     //品牌管理
@@ -243,6 +245,11 @@ Route::prefix('Admin')->namespace('Admin')->group(function () {
         Route::get('/', 'ProductsController@manage')->name('Products_Manage');
 
         Route::post('/', 'ProductsController@manageadd')->name('Products_Add');
+
+        Route::get('/state', 'ProductsController@state')->name('Products_state');
+
+        Route::get('/del', 'ProductsController@del')->name('Products_del');
+
     });
 
     //分类管理
