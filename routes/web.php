@@ -239,7 +239,7 @@ Route::prefix('Admin')->namespace('Admin')->group(function () {
     Route::namespace('Products_List')->prefix('Products_Manage')->group(function () {
         Route::get('/', 'ProductsController@manage')->name('Products_Manage');
 
-        Route::post('/', 'ProductsController@manageadd')->name('Products_Add');
+        Route::post('/manageadd', 'ProductsController@manageadd')->name('Products_Add');
 
         Route::get('/state', 'ProductsController@state')->name('Products_state');
 

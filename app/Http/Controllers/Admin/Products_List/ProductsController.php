@@ -50,7 +50,7 @@ class ProductsController extends Controller
     public function manage(){
         $res1 = brand::get()->toArray();
 
-        $data = DB::select("select * from cates where ");
+        // $data = DB::select("select * from cates where ");
 
         $count = count($res1);
 
@@ -80,7 +80,7 @@ class ProductsController extends Controller
 
     //后台添加品牌模板
     public function addBrand(){
-        dump(session());
+        // dump(session());
         
         return view('Admin.ProductsList.Products_Add_Brand');
     }
@@ -116,6 +116,8 @@ class ProductsController extends Controller
                 'Country' => $_POST['Country'],
                 'describe' => $_POST['describe']
             ]);
+            
+            return back();
         }
     }
 
